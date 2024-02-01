@@ -59,6 +59,12 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-inline</artifactId>
+    <version>3.12.4</version>
+    <scope>test</scope>
+</dependency>
+        <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka-test</artifactId>
             <scope>test</scope>
@@ -91,5 +97,8 @@
 
     <modules>
         <module>RequestHandler</module>
+        <module>PreferenceService</module>
+        <module>EnrichmentService</module>
+        <module>Kafka</module>
     </modules>
 </project>

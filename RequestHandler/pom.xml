@@ -28,6 +28,17 @@
             <version>2.14.2</version>
         </dependency>
         <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+         <groupId>org.mockito</groupId>
+    <artifactId>mockito-inline</artifactId>
+    <version>3.12.4</version>
+    <scope>test</scope>
+</dependency>
+        <dependency>
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
             <version>3.0.2</version>

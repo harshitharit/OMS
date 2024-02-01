@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "RequestHandlerApplication",
+            "request": "launch",
+            "mainClass": "com.oms.RequestHandlerApplication",
+            "projectName": "RequestHandler"
+        },
+        {
+            "type": "java",
+            "name": "PrefernceServiceApplication",
+            "request": "launch",
+            "mainClass": "com.om.PrefernceServiceApplication",
+            "projectName": "PreferenceService"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EnrichmentSerivce<EnrichmentService>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.om.EnrichmentSerivce",
+            "projectName": "EnrichmentService",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
