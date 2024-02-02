@@ -33,3 +33,4 @@ public class RequestHandlerController {
 		return new ResponseEntity<>((requestHandlerService.handleBulkRequest(bulkRequestFile)), HttpStatus.CREATED);
 	}
 }
+
