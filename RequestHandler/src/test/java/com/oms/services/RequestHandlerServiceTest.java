@@ -1,9 +1,9 @@
 package com.oms.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.oms.SendMessageToKafka;
 import com.oms.dtos.OnlineRequestDto;
 import com.oms.exceptions.UnsupportedFileTypeException;
-import com.oms.kafka.producer.SendMessageToKafka;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -100,5 +100,6 @@
         <module>PreferenceService</module>
         <module>EnrichmentService</module>
         <module>Kafka</module>
+        <module>GeneratorService</module>
     </modules>
 </project>

@@ -11,12 +11,14 @@
         <module name="EnrichmentService" />
         <module name="PreferenceService" />
         <module name="RequestHandler" />
+        <module name="GeneratorService" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="EnrichmentService" options="-parameters" />
+      <module name="GeneratorService" options="-parameters" />
       <module name="Kafka" options="-parameters" />
       <module name="PreferenceService" options="-parameters" />
       <module name="RequestHandler" options="-parameters" />

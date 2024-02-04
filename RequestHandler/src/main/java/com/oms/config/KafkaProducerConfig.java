@@ -1,5 +1,6 @@
 package com.oms.config;
 
+import com.oms.SendMessageToKafka;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,6 +21,10 @@ public class KafkaProducerConfig {
  private String keySerializer;
  @Value("${spring.kafka.producer.value-serializer}")
  private String valueSerializer;
+	@Bean
+	public  SendMessageToKafka messageToKafka(){
+		return new SendMessageToKafka();
+	}
 
 	@Bean
 	public NewTopic createTopic(){
