@@ -1,4 +1,10 @@
 package com.oms.repository;
 
-public class EnrichmentRepository {
+import com.oms.model.EnrichmentModel;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import java.util.Optional;
+
+public interface EnrichmentRepository extends MongoRepository<EnrichmentModel, String>{
+    Optional<EnrichmentModel> findById(String id);
 }
