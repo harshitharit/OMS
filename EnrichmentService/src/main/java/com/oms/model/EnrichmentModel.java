@@ -23,4 +23,6 @@ public class EnrichmentModel {
     private String temporaryAddress;
     private String place;
     private Date bankHolderSince;
+    private String channel; 
+    private Date dateofBirth;
 }
