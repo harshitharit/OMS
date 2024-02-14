@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
-
-
 @RestController
 public class EnrichmentController {
     private static final Logger logger = LoggerFactory.getLogger(EnrichmentController.class);
@@ -23,7 +21,7 @@ public class EnrichmentController {
     private EnrichmentRepository enrichmentRepository;
 
     @GetMapping("/persons/{accountNumber}")
-    public EnrichmentModel getPersonByAccountNumber(@PathVariable String accountNumber) {
+    public EnrichmentModel getPersonByAccountNumber(@PathVariable Long accountNumber) {
         logger.info("Fetching EnrichmentModel for accountNumber: {}", accountNumber);
         Optional<EnrichmentModel> optionalEnrichmentModel = enrichmentRepository.findByAccountNumber(accountNumber);
         if (optionalEnrichmentModel.isPresent()) {

@@ -18,11 +18,12 @@ public class EnrichmentModel {
     @Id
     private String id;
     private String name;
-    private String accountNumber;
+    private Long accountNumber;
     private String permanentAddress;
     private String temporaryAddress;
     private String place;
     private Date bankHolderSince;
     private String channel; 
     private Date dateofBirth;
+    private long cifNumber;
 }
