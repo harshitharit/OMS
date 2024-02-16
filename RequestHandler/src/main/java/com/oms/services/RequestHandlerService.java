@@ -30,7 +30,7 @@ public class RequestHandlerService {
 	 * @throws JsonProcessingException
 	 */
 	public String handleOnlineRequest(OnlineRequestDto onlineRequest) throws JsonProcessingException {
-		this.pushMessagesToKafkaTopic(onlineRequest.toRequestMessage());
+		this.pushMessagesToKafkaTopic("request-topic",onlineRequest.toRequestMessage());
 		return "Success";
 	}
 
@@ -47,7 +47,7 @@ public class RequestHandlerService {
 			throw new UnsupportedFileTypeException("Uploaded file type is not supported");
 		}
 		for(var message: RequestHandlerUtils.read(RequestMessage.class,file.getInputStream())) {
-			this.pushMessagesToKafkaTopic(message);
+			this.pushMessagesToKafkaTopic("request-topic",message);
 		}
 		return "Success";
 	}
@@ -58,7 +58,7 @@ public class RequestHandlerService {
 	 * @param messages
 	 * @throws JsonProcessingException
 	 */
-	private void pushMessagesToKafkaTopic(RequestMessage messages) throws JsonProcessingException {
-		messageToKafka.sendMessageToTopic(RequestHandlerUtils.convertToJson(messages));
+	private void pushMessagesToKafkaTopic(String topic, RequestMessage messages) throws JsonProcessingException {
+		messageToKafka.sendMessageToTopic(topic, RequestHandlerUtils.convertToJson(messages));
 	}
 }

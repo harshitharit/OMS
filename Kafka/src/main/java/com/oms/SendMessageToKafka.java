@@ -16,11 +16,11 @@ public class SendMessageToKafka {
     @Autowired
     private KafkaTemplate<String,Object> template;
 
-    public CompletableFuture<SendResult<String, Object>> sendMessageToTopic(String message){
-        CompletableFuture<SendResult<String, Object>> future = template.send("request-topic", message);
+    public CompletableFuture<SendResult<String, Object>> sendMessageToTopic(String topic, String message){
+        CompletableFuture<SendResult<String, Object>> future = template.send(topic, message);
         future.whenComplete((result,ex)->{
             if (ex == null) {
-                LOGGER.info("Sent message=[{}] with offset=[{}]", message, result.getRecordMetadata().offset());
+                LOGGER.info("Sent message=[{}] with offset=[{}]", message, result.getRecordMetadata().offset(), topic);
             } else {
                 LOGGER.error("Unable to send message=[{}] due to : {}", message, ex.getMessage());
             }

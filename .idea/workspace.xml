@@ -5,109 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5790505-cab5-44e2-9ae6-9fe6901843a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Kafka/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/OutputManagementService-main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/a/0af293cdabcf82cad58a30158212fd8f06214bcb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/d/0d1937d46af1f5d2953a20c050b15d97a6f65306" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/b/2b458141280fb4a603ba25105a2de2a4bcc14522" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/d/2d9ddbdcca3b56183e1c613acbeba8c4e4b556e4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/3/33e41fa3659d1722c1b1f35c67c0267f7972e47d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3c22b12ba111acdb8e72d77bf5d77a79ff7c9c63" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/f/3f5db7e43b1730076f77a37c08b9392fa3691608" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/4495b43efdd36c598476af402383b57e188aca0f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/b/5b5a1bcf637596a9b1216a2ba93129b6d0522679" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/e/5e41062e81918aeadefa3b631a130bd519683ef2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/d/6d31a3ac7490cb63d5dd30165adde5abe032ba51" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/0/709bab6869fd119361b4dc7557e33a90c2eb6c84" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/2/72af43493504ea1a2b6bdd4233b104dfb0a28a44" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/a/7af6aec40d24047eb4e31909fbacccbf761ee087" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/b/7b760a1b07c8df4464b270d725c5c96ed300aa3a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/f/7fbacc6963bb8506bcb6b1d1afc160a5f701590b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/0/80dd9d3cf1bab7873b7cffbb73b41c66e48d6e40" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/5/85b4dfd76e01eaa2de006e2bc8ea89faf089d66a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/d/8dd59933b92b255718efdd05a108fa24e94b0f49" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/4/948844ca4fb752cbc304a4a2516421b02e196c83" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/d/9d6ff6601426ee57465ee71d7bf9ccc91514455c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/b/abdac53eef8d116fb0740a11733ec34dc6b0aa72" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/7/b7d8b2c7dffb78707552bf0503bf30a95c52b2df" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/8/b8a74f28494975465ec2588d1931a0be3dc13876" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/c/bc69836fc8cf6a1c1d51ee9a43ad9234130a2d9e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/5/c56db450b19016759b6d0d7473c392b6896c53a2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/b/eb2210baff402ab78654c7ece1cc9f2005754cde" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/2/f29e8babeaf0bc90d0b942b8e91c403e2eb7a5a1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/8/f888a47d2a9cb031ac770a70d8a22a19e19cdfc6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/8/f8dc6d79b12bed1c82e7ae2e1b76a4f008338488" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/e/feba60341094bbc6fc83860f0e538d1961eea9f4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/a/0af293cdabcf82cad58a30158212fd8f06214bcb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/d/0d1937d46af1f5d2953a20c050b15d97a6f65306" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/b/2b458141280fb4a603ba25105a2de2a4bcc14522" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/d/2d9ddbdcca3b56183e1c613acbeba8c4e4b556e4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/3/33e41fa3659d1722c1b1f35c67c0267f7972e47d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/c/3c22b12ba111acdb8e72d77bf5d77a79ff7c9c63" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/f/3f5db7e43b1730076f77a37c08b9392fa3691608" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/4/4495b43efdd36c598476af402383b57e188aca0f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/b/5b5a1bcf637596a9b1216a2ba93129b6d0522679" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/e/5e41062e81918aeadefa3b631a130bd519683ef2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/d/6d31a3ac7490cb63d5dd30165adde5abe032ba51" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/0/709bab6869fd119361b4dc7557e33a90c2eb6c84" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/2/72af43493504ea1a2b6bdd4233b104dfb0a28a44" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/a/7af6aec40d24047eb4e31909fbacccbf761ee087" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/b/7b760a1b07c8df4464b270d725c5c96ed300aa3a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/f/7fbacc6963bb8506bcb6b1d1afc160a5f701590b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/0/80dd9d3cf1bab7873b7cffbb73b41c66e48d6e40" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/5/85b4dfd76e01eaa2de006e2bc8ea89faf089d66a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/d/8dd59933b92b255718efdd05a108fa24e94b0f49" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/4/948844ca4fb752cbc304a4a2516421b02e196c83" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/d/9d6ff6601426ee57465ee71d7bf9ccc91514455c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/b/abdac53eef8d116fb0740a11733ec34dc6b0aa72" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/7/b7d8b2c7dffb78707552bf0503bf30a95c52b2df" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/8/b8a74f28494975465ec2588d1931a0be3dc13876" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/c/bc69836fc8cf6a1c1d51ee9a43ad9234130a2d9e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/5/c56db450b19016759b6d0d7473c392b6896c53a2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/b/eb2210baff402ab78654c7ece1cc9f2005754cde" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/2/f29e8babeaf0bc90d0b942b8e91c403e2eb7a5a1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/8/f888a47d2a9cb031ac770a70d8a22a19e19cdfc6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/8/f8dc6d79b12bed1c82e7ae2e1b76a4f008338488" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/e/feba60341094bbc6fc83860f0e538d1961eea9f4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/controller/EnrichmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/controller/EnrichmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/model/EnrichmentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/model/EnrichmentModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/repository/EnrichmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/repository/EnrichmentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/service/EnrichmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/service/EnrichmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnrichmentService/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/EnrichmentSerivceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/EnrichmentSerivceApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/controller/EnrichmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/controller/EnrichmentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/model/EnrichmentModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/model/EnrichmentModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/repository/EnrichmentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/repository/EnrichmentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/service/EnrichmentService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/target/classes/com/oms/ReceieveMessageFromKafka.class" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/target/classes/com/oms/ReceieveMessageFromKafka.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/target/classes/com/oms/SendMessageToKafka.class" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/target/classes/com/oms/SendMessageToKafka.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kafka/target/classes/com/oms/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/target/classes/com/oms/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/src/main/java/com/oms/config/KafkaProducerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/src/main/java/com/oms/KafkaProducerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/src/test/java/com/oms/config/KafkaProducerConfigTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/src/test/java/com/oms/config/KafkaProducerConfigTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/RequestHandlerApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/RequestHandlerApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/config/KafkaProducerConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/controller/RequestHandlerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/controller/RequestHandlerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/dtos/OnlineRequestDto$OnlineRequestDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/dtos/OnlineRequestDto$OnlineRequestDtoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/dtos/OnlineRequestDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/dtos/OnlineRequestDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/dtos/RequestMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/dtos/RequestMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/exceptions/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/exceptions/GlobalExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/exceptions/UnsupportedFileTypeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/exceptions/UnsupportedFileTypeException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/services/RequestHandlerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/services/RequestHandlerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/utils/RequestHandlerUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/utils/RequestHandlerUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +21,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;harshit-harit_infosys&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="a32a02b4-12d2-487f-8803-4b0682473046" />
+        <option name="url" value="https://github.com/harshit-harit_infosys/AccelerateTeam.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -125,21 +43,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.EnrichmentSerivceApplication.executor": "Run",
-    "Application.RequestHandlerApplication.executor": "Run",
-    "Application.main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "vcs.Git"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EnrichmentSerivceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RequestHandlerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.oms" />
