@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document(collection = "OMS")
+@Document(collection = "Enrichment")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,7 +18,7 @@ public class EnrichmentModel {
     @Id
     private String id;
     private String name;
-    private Long accountNumber;
+    private long accountNumber;
     private String permanentAddress;
     private String temporaryAddress;
     private String place;

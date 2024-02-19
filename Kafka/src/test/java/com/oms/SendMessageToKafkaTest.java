@@ -36,9 +36,6 @@ class SendMessageToKafkaTest {
         sendMessageToKafka.sendMessageToTopic(topic, message);
         verify(kafkaTemplate, times(1)).send(topic, message);
     }
-
-
-
     @Test
     void shouldHandleExceptionWhenSendingMessage() {
         String topic = "testTopic";

@@ -21,7 +21,8 @@ public class KafkaProducerConfig {
  private String keySerializer;
  @Value("${spring.kafka.producer.value-serializer}")
  private String valueSerializer;
-	@Bean
+
+ @Bean
 	public  SendMessageToKafka messageToKafka(){
 		return new SendMessageToKafka();
 	}
