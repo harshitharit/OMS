@@ -1,0 +1,9 @@
+
+_
+java:S6813
+"BRemove this field injection and use constructor injection instead.(êæÄŞ8´±½óŞ1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8´±½óŞ1
+I
+java:S1172",Remove this unused method parameter "topic".(´ãÉ 8º±½óŞ1
+F	java:S106"+Replace this use of System.out by a logger.(ùø¼8¼±½óŞ1

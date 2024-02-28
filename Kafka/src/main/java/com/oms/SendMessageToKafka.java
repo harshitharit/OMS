@@ -27,5 +27,4 @@ public class SendMessageToKafka {
         });
         return future;
     }
-
 }
