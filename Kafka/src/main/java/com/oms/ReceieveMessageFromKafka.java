@@ -23,7 +23,7 @@ public class ReceieveMessageFromKafka {
     @Autowired
     public ReceieveMessageFromKafka(ConsumerFactory<String, Object> consumerFactory) {
         this.consumer = consumerFactory.createConsumer();
-        //subscribeToTopic();
+        subscribeToTopic("request-topic");
     }
     public void subscribeToTopic(String topic) {
         this.consumer.subscribe(Collections.singletonList(topic));
