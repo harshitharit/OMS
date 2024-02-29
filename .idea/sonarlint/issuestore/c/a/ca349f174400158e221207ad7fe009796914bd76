@@ -1,0 +1,6 @@
+
+r	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’òæ®ÿÿÿÿÿ8±Ç¯›ß1
+N
+java:S1874",Remove this use of "poll"; it is deprecated.(³°ÓÄþÿÿÿÿ8×Ñ¿›ß1
+L	java:S106"+Replace this use of System.out by a logger.(âÆÂÌüÿÿÿÿ8îÜ§›ß1
+G	java:S106""+Replace this use of System.out by a logger.(â°©Ø8õÜ§›ß1

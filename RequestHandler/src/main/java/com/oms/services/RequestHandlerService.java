@@ -1,6 +1,7 @@
 package com.oms.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.oms.ReceieveMessageFromKafka;
 import com.oms.SendMessageToKafka;
 import com.oms.dtos.OnlineRequestDto;
 import com.oms.dtos.RequestMessage;
@@ -13,6 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
+
 @Service
 public class RequestHandlerService {
 
@@ -21,6 +24,15 @@ public class RequestHandlerService {
 
 	@Autowired
 	private SendMessageToKafka messageToKafka;
+
+	@Autowired
+	private ReceieveMessageFromKafka receieveMessageFromKafka;
+
+
+	public void subscribeToTopics(List<String> topics) {
+		receieveMessageFromKafka.subscribeToTopics(topics);
+	}
+
 
 	/**
 	 * Handle the online request and send the message to kafka topic.
@@ -59,6 +71,6 @@ public class RequestHandlerService {
 	 * @throws JsonProcessingException
 	 */
 	private void pushMessagesToKafkaTopic(String topic, RequestMessage messages) throws JsonProcessingException {
-		messageToKafka.sendMessageToTopic(topic, RequestHandlerUtils.convertToJson(messages));
+		messageToKafka.sendMessageToTopic("request-topic", RequestHandlerUtils.convertToJson(messages));
 	}
 }

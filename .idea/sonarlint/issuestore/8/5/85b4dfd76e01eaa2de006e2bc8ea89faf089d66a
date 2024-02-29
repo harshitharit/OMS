@@ -1,3 +1,9 @@
 
-X
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ
+k
+java:S1192-"NDefine a constant instead of duplicating this literal "request-topic" 3 times.(×¯¢8¨¨¦šß1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8º¨¦šß1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8º¨¦šß1
+I
+java:S1172I",Remove this unused method parameter "topic".(Å®ğç8Ä¨¦šß1
