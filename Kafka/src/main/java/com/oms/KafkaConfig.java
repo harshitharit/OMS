@@ -23,6 +23,8 @@ public class KafkaConfig {
  private String valueDeserializer;
  @Value("${spring.kafka.consumer.key-deserializer}")
  private String keyDeserializer;
+ @Value("${spring.kafka.consumer.group-id}")
+ private String groupID;
 
  @Bean
 	public  SendMessageToKafka messageToKafka(){
@@ -31,7 +33,11 @@ public class KafkaConfig {
 
 	@Bean
 	public NewTopic createTopic(){
-		return new NewTopic("request-topic", 3, (short) 1);
+		return new NewTopic("request-topic", 1, (short) 1);
+	}
+	@Bean
+	public NewTopic createEnrichmentTopic(){
+		return new NewTopic("Enrichment-Topic", 1, (short) 1);
 	}
 	@Bean
     public Map<String,Object> producerConfig(){
@@ -48,7 +54,7 @@ public class KafkaConfig {
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, keyDeserializer);
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, valueDeserializer);
-		props.put(ConsumerConfig.GROUP_ID_CONFIG, "ECM-OM");
+		props.put(ConsumerConfig.GROUP_ID_CONFIG, groupID);
 		return props;
 	}
 	@Bean
