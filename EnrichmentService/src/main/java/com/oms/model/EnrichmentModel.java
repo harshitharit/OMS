@@ -7,7 +7,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Document(collection = "Enrichment")
 @Getter
@@ -22,8 +22,9 @@ public class EnrichmentModel {
     private String permanentAddress;
     private String temporaryAddress;
     private String place;
-    private Date bankHolderSince;
+    private LocalDate bankHolderSince;
     private String channel;
-    private Date dateofBirth;
+    private LocalDate dateofBirth;
     private long cifNumber;
+
 }

@@ -1,0 +1,4 @@
+com\oms\repository\EnrichmentRepository.class
+com\oms\EnrichmentSerivceApplication.class
+com\oms\model\EnrichmentModel.class
+com\oms\service\EnrichmentService.class
