@@ -3,6 +3,7 @@ package com.oms.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.oms.SendMessageToKafka;
 import com.oms.model.EnrichmentModel;
 import com.oms.repository.EnrichmentRepository;
@@ -40,6 +41,8 @@ public class EnrichmentService {
             List<EnrichmentModel> enrichmentModels = enrichmentRepository.findByAccountNumber(accountNumber, cifNumber);
             if (!enrichmentModels.isEmpty()) {
                 EnrichmentModel enrichmentModel = enrichmentModels.get(0);
+                logger.info("Data fetched for CIF Number: {} and Account Number: {}", enrichmentModel.getCifNumber(), enrichmentModel.getAccountNumber());
+                sendMessageToKafka(enrichmentModel);
             } else {
                 logger.info("No data found for CIF Number: {} and Account Number: {}", cifNumber, accountNumber);
             }
@@ -50,6 +53,7 @@ public class EnrichmentService {
     private void sendMessageToKafka(EnrichmentModel enrichmentModel) {
         try {
             ObjectMapper mapper = new ObjectMapper();
+            mapper.registerModule(new JavaTimeModule());
             String message = mapper.writeValueAsString(enrichmentModel);
             messageToKafka.sendMessageToTopic("enrichment-topic", message);
             logger.info("Enrichment data sent for CIF Number: {} and Account Number: {}", enrichmentModel.getCifNumber(), enrichmentModel.getAccountNumber());

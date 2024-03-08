@@ -37,7 +37,7 @@ public class KafkaConfig {
 	}
 	@Bean
 	public NewTopic createEnrichmentTopic(){
-		return new NewTopic("Enrichment-Topic", 1, (short) 1);
+		return new NewTopic("enrichment-topic", 1, (short) 1);
 	}
 	@Bean
     public Map<String,Object> producerConfig(){
