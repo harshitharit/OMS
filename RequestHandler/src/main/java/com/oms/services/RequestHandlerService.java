@@ -24,16 +24,6 @@ public class RequestHandlerService {
 
 	@Autowired
 	private SendMessageToKafka messageToKafka;
-
-	@Autowired
-	private ReceieveMessageFromKafka receieveMessageFromKafka;
-
-
-	public void subscribeToTopics(List<String> topics) {
-		receieveMessageFromKafka.subscribeToTopics(topics);
-	}
-
-
 	/**
 	 * Handle the online request and send the message to kafka topic.
 	 *

@@ -47,3 +47,5 @@ I
 EnrichmentService/pom.xml,7\b\7b760a1b07c8df4464b270d725c5c96ed300aa3a
 g
 7Kafka/src/test/java/com/oms/SendMessageToKafkaTest.java,1\d\1dfe60be26f9f5e815f8ca7b4c2c7a71c7b2b4a3
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec

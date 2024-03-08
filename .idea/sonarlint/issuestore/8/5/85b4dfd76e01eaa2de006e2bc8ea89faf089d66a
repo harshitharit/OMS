@@ -1,9 +1,11 @@
 
-k
-java:S1192-"NDefine a constant instead of duplicating this literal "request-topic" 3 times.(×¯¢8¨¨¦šß1
-_
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8º¨¦šß1
-_
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8º¨¦šß1
-I
-java:S1172I",Remove this unused method parameter "topic".(Å®ğç8Ä¨¦šß1
+‘
+java:S1192#"NDefine a constant instead of duplicating this literal "request-topic" 3 times.(×¯¢8¨¨¦šß1J$afd03a88-d7e5-488f-a14b-e799295b4cfe
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8º¨¦šß1J$8b1612f5-688f-45c4-bd94-fe9d0557df6d
+o
+java:S1172?",Remove this unused method parameter "topic".(Å®ğç8Ä¨¦šß1J$a1363982-05a3-4725-ab8d-7ebd2b3440d6
+€
+java:S1128"=Remove this unused import 'com.oms.ReceieveMessageFromKafka'.(Ü‡Ë8©×Ÿçá1J$349b3f54-2bee-4e5f-94f8-2ce4c410dc8e
+s
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8©×Ÿçá1J$6b2a43c2-731f-401d-b139-6c0351c112b4
