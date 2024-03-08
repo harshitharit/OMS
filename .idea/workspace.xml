@@ -4,17 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06360c6e-34e4-406d-bc4b-f24b6e895662" name="Changes" comment="updated Enrichment service">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/2/72af43493504ea1a2b6bdd4233b104dfb0a28a44" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/2/72af43493504ea1a2b6bdd4233b104dfb0a28a44" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/5/85b4dfd76e01eaa2de006e2bc8ea89faf089d66a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/5/85b4dfd76e01eaa2de006e2bc8ea89faf089d66a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/d/8dd59933b92b255718efdd05a108fa24e94b0f49" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/d/8dd59933b92b255718efdd05a108fa24e94b0f49" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/a/ca349f174400158e221207ad7fe009796914bd76" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/a/ca349f174400158e221207ad7fe009796914bd76" afterDir="false" />
+    <list default="true" id="06360c6e-34e4-406d-bc4b-f24b6e895662" name="Changes" comment="fixed bugs for enrichment service">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/2/92e2b1cc44bb6a66e8244a890f9293bd5033e64b" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/2/92e2b1cc44bb6a66e8244a890f9293bd5033e64b" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/EnrichmentSerivceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/EnrichmentSerivceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/src/main/java/com/oms/RequestHandlerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/src/main/java/com/oms/RequestHandlerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RequestHandler/src/main/java/com/oms/services/RequestHandlerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/src/main/java/com/oms/services/RequestHandlerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/repository/EnrichmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/repository/EnrichmentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/service/EnrichmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/src/main/java/com/oms/service/EnrichmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/EnrichmentSerivceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/EnrichmentSerivceApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/model/EnrichmentModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/model/EnrichmentModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/repository/EnrichmentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/repository/EnrichmentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/service/EnrichmentService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/service/EnrichmentService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/service/EnrichmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/EnrichmentService/target/classes/com/oms/service/EnrichmentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/target/classes/com/oms/KafkaConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/target/classes/com/oms/KafkaConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/target/test-classes/com/oms/KafkaConfigTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/target/test-classes/com/oms/KafkaConfigTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/target/test-classes/com/oms/ReceieveMessageFromKafkaTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/target/test-classes/com/oms/ReceieveMessageFromKafkaTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/target/test-classes/com/oms/SendMessageToKafkaTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/target/test-classes/com/oms/SendMessageToKafkaTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PreferenceService/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/RequestHandlerApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/RequestHandlerApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/services/RequestHandlerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/RequestHandler/target/classes/com/oms/services/RequestHandlerService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,12 +136,21 @@
       <option name="project" value="LOCAL" />
       <updated>1709877846628</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fixed bugs for enrichment service">
+      <option name="closed" value="true" />
+      <created>1709894174707</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709894174707</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updated Enrichment service" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated Enrichment service" />
+    <MESSAGE value="fixed bugs for enrichment service" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs for enrichment service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

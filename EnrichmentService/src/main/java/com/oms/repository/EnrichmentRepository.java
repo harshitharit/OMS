@@ -8,5 +8,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 
 public interface EnrichmentRepository extends MongoRepository<EnrichmentModel, Long> {
-List<EnrichmentModel> findByAccountNumber(Long accountNumber, Long cifNumber);
+List<EnrichmentModel> findByAccountNumberAndCifNumber(Long accountNumber, Long cifNumber);
 }

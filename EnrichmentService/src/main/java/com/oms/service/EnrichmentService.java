@@ -38,7 +38,7 @@ public class EnrichmentService {
             Map<String, Object> messageMap = mapper.readValue(message, new TypeReference<Map<String, Object>>(){});
             Long cifNumber = Long.parseLong(messageMap.get("cifNumber").toString());
             Long accountNumber = Long.parseLong(messageMap.get("accountNumber").toString());
-            List<EnrichmentModel> enrichmentModels = enrichmentRepository.findByAccountNumber(accountNumber, cifNumber);
+            List<EnrichmentModel> enrichmentModels = enrichmentRepository.findByAccountNumberAndCifNumber(accountNumber, cifNumber);
             if (!enrichmentModels.isEmpty()) {
                 EnrichmentModel enrichmentModel = enrichmentModels.get(0);
                 logger.info("Data fetched for CIF Number: {} and Account Number: {}", enrichmentModel.getCifNumber(), enrichmentModel.getAccountNumber());
