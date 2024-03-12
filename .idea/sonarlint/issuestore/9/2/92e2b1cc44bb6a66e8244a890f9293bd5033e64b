@@ -1,3 +1,5 @@
 
-‚
-java:S6213"":Rename this variable to not match a restricted identifier.(ı¾ÏÏüÿÿÿÿ8Ïöêîá1J$e6b88f1e-b176-4852-938a-308a66e6be55
+
+java:S2259%"HA "NullPointerException" could be thrown; "messageMap" is nullable here.(‹íÏÊúÿÿÿÿ8ºö¬‹ã1J$3f25c9b8-de1d-47d9-b5e4-d18b96943bad
+g
+java:S11686"$Return an empty map instead of null.(¥¹ï8Ø“¯áâ1J$02494d9f-6e6f-43a3-8413-a58e47ec8bb2

@@ -55,7 +55,7 @@ public class RequestHandlerService {
 	}
 
 	/**
-	 * Send message to kafka.
+	 * Send message to kafka.A
 	 *
 	 * @param messages
 	 * @throws JsonProcessingException

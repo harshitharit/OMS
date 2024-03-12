@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 @SpringBootTest(classes = {KafkaConfig.class})
-@EmbeddedKafka(brokerProperties = {"ListenersPLAINTEXT://localhost:9092"})
+@EmbeddedKafka(brokerProperties = {"ListenersPLAINTEXT://localhost:9093"})
 class KafkaConfigTest {
 
     @Autowired
@@ -38,7 +38,7 @@ class KafkaConfigTest {
     @Test
     void testCreateEnrichmentTopic() {
         NewTopic topic = kafkaConfig.createEnrichmentTopic();
-        assertEquals("Enrichment-Topic", topic.name());
+        assertEquals("enrichment-topic", topic.name());
         assertEquals(1, topic.numPartitions());
         assertEquals((short) 1, topic.replicationFactor());
     }

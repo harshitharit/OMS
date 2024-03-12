@@ -31,26 +31,35 @@ public class EnrichmentService {
     }
 
     @KafkaListener(topics = "request-topic", groupId = "ECMOM")
-    public void processMessage(ConsumerRecord<Long, Object> record) {
-        String message = record.value().toString();
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            Map<String, Object> messageMap = mapper.readValue(message, new TypeReference<Map<String, Object>>(){});
-            Long cifNumber = Long.parseLong(messageMap.get("cifNumber").toString());
-            Long accountNumber = Long.parseLong(messageMap.get("accountNumber").toString());
-            List<EnrichmentModel> enrichmentModels = enrichmentRepository.findByAccountNumberAndCifNumber(accountNumber, cifNumber);
-            if (!enrichmentModels.isEmpty()) {
-                EnrichmentModel enrichmentModel = enrichmentModels.get(0);
-                logger.info("Data fetched for CIF Number: {} and Account Number: {}", enrichmentModel.getCifNumber(), enrichmentModel.getAccountNumber());
-                sendMessageToKafka(enrichmentModel);
-            } else {
-                logger.info("No data found for CIF Number: {} and Account Number: {}", cifNumber, accountNumber);
-            }
-        } catch (IOException e) {
-            logger.error("Error while processing message: {}", e.getMessage());
+    public void processMessage(ConsumerRecord<Long, Object> consumerRecord) {
+        String message = consumerRecord.value().toString();
+        Map<String, Object> messageMap = parseMessage(message);
+        Long cifNumber = Long.parseLong(messageMap.get("cifNumber").toString());
+        Long accountNumber = Long.parseLong(messageMap.get("accountNumber").toString());
+        List<EnrichmentModel> enrichmentModels = fetchData(accountNumber, cifNumber);
+        if (!enrichmentModels.isEmpty()) {
+            EnrichmentModel enrichmentModel = enrichmentModels.get(0);
+            harshit(enrichmentModel);
+        } else {
+            logger.info("No data found for CIF Number: {} and Account Number: {}", cifNumber, accountNumber);
         }
     }
-    private void sendMessageToKafka(EnrichmentModel enrichmentModel) {
+
+    private Map<String, Object> parseMessage(String message) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.readValue(message, new TypeReference<Map<String, Object>>(){});
+        } catch (IOException e) {
+            logger.error("Error while processing message: {}", e.getMessage());
+            return null;
+        }
+    }
+
+    private List<EnrichmentModel> fetchData(Long accountNumber, Long cifNumber) {
+        return enrichmentRepository.findByAccountNumberAndCifNumber(accountNumber, cifNumber);
+    }
+
+    private void harshit(EnrichmentModel enrichmentModel) {
         try {
             ObjectMapper mapper = new ObjectMapper();
             mapper.registerModule(new JavaTimeModule());
@@ -62,4 +71,4 @@ public class EnrichmentService {
             logger.error("Error while converting EnrichmentModel to JSON: {}", e.getMessage());
         }
     }
- }
+}
