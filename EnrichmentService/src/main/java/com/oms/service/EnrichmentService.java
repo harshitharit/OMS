@@ -39,7 +39,7 @@ public class EnrichmentService {
         List<EnrichmentModel> enrichmentModels = fetchData(accountNumber, cifNumber);
         if (!enrichmentModels.isEmpty()) {
             EnrichmentModel enrichmentModel = enrichmentModels.get(0);
-            harshit(enrichmentModel);
+            sendMessageTokafka(enrichmentModel);
         } else {
             logger.info("No data found for CIF Number: {} and Account Number: {}", cifNumber, accountNumber);
         }
@@ -59,7 +59,7 @@ public class EnrichmentService {
         return enrichmentRepository.findByAccountNumberAndCifNumber(accountNumber, cifNumber);
     }
 
-    private void harshit(EnrichmentModel enrichmentModel) {
+    private void sendMessageTokafka(EnrichmentModel enrichmentModel) {
         try {
             ObjectMapper mapper = new ObjectMapper();
             mapper.registerModule(new JavaTimeModule());
