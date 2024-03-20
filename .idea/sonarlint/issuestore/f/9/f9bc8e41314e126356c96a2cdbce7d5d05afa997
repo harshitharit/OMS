@@ -1,0 +1,11 @@
+
+
+java:S2629*"7Use the built-in formatting to construct this argument.(èå¦§úÿÿÿÿ8Îß•’ã1J$b54f4fed-b265-424e-8c6e-04b90e6c86b9
+‹
+java:S2259&"HA "NullPointerException" could be thrown; "messageMap" is nullable here.(äâŒ¨8·Ú—’ã1J$e976ca76-0078-4daf-b994-aa27419b7f93
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8Üß•’ã1J$a26fcd46-0f22-4473-b891-5ad18a815237
+g
+java:S1168"$Return an empty map instead of null.(¥¹ï8‡à•’ã1J$cb11479c-b15c-471d-b6a1-888dabbc4e72
+‰
+java:S3457*"AFormat specifiers should be used instead of string concatenation.(èå¦§úÿÿÿÿ8à•’ã1J$7d3cd4f3-4b64-477c-861a-40fd61bb89ff
