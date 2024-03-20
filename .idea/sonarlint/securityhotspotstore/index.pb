@@ -57,8 +57,6 @@ m
 =Kafka/src/test/java/com/oms/ReceieveMessageFromKafkaTest.java,2\2\22fc7225b1118c7e15f6830e3f574790d19d1c61
 `
 0Kafka/src/test/java/com/oms/KafkaConfigTest.java,c\7\c769b4034b537bcec5e4935a6dcfa259bb87bf69
-|
-LPreferenceService/src/main/java/com/oms/repository/PreferenceReopsitory.java,f\8\f8e19003a643a5558e1e08b7a340a06332e173ca
 v
 FPreferenceService/src/main/java/com/oms/service/PreferenceService.java,f\9\f9bc8e41314e126356c96a2cdbce7d5d05afa997
 ;
@@ -67,3 +65,5 @@ I
 PreferenceService/pom.xml,f\8\f888a47d2a9cb031ac770a70d8a22a19e19cdfc6
 x
 HPreferenceService/src/main/java/com/oms/PrefernceServiceApplication.java,6\f\6fa59bb6707589f93415ebd66ffd0a52911394ef
+z
+JEnrichmentService/src/test/java/com/oms/service/EnrichmentServiceTest.java,a\b\abb0a7c1ae6a5551a344d492810f67a5821eee28
