@@ -9,8 +9,11 @@ import com.oms.model.EnrichmentModel;
 import com.oms.repository.EnrichmentRepository;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+=======
+>>>>>>> origin/main
 =======
 >>>>>>> origin/main
 import org.slf4j.Logger;
@@ -37,7 +40,11 @@ public class EnrichmentService {
 
     @KafkaListener(topics = "request-topic", groupId = "ECMOM")
 <<<<<<< HEAD
+<<<<<<< HEAD
     public void processMessage(@NotNull ConsumerRecord<Long, Object> consumerRecord) {
+=======
+    public void processMessage(ConsumerRecord<Long, Object> consumerRecord) {
+>>>>>>> origin/main
 =======
     public void processMessage(ConsumerRecord<Long, Object> consumerRecord) {
 >>>>>>> origin/main
@@ -49,7 +56,11 @@ public class EnrichmentService {
         if (!enrichmentModels.isEmpty()) {
             EnrichmentModel enrichmentModel = enrichmentModels.get(0);
 <<<<<<< HEAD
+<<<<<<< HEAD
             sendMessageToKafka(enrichmentModel);
+=======
+            sendMessageTokafka(enrichmentModel);
+>>>>>>> origin/main
 =======
             sendMessageTokafka(enrichmentModel);
 >>>>>>> origin/main
@@ -59,7 +70,11 @@ public class EnrichmentService {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private @Nullable Map<String, Object> parseMessage(String message) {
+=======
+    private Map<String, Object> parseMessage(String message) {
+>>>>>>> origin/main
 =======
     private Map<String, Object> parseMessage(String message) {
 >>>>>>> origin/main
@@ -77,7 +92,11 @@ public class EnrichmentService {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private void sendMessageToKafka(EnrichmentModel enrichmentModel) {
+=======
+    private void sendMessageTokafka(EnrichmentModel enrichmentModel) {
+>>>>>>> origin/main
 =======
     private void sendMessageTokafka(EnrichmentModel enrichmentModel) {
 >>>>>>> origin/main
@@ -93,7 +112,11 @@ public class EnrichmentService {
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main
 =======
 }
 >>>>>>> origin/main

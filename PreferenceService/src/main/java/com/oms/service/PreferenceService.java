@@ -22,12 +22,16 @@ public class PreferenceService {
     private SendMessageToKafka messageToKafka;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     @Autowired
     public PreferenceService(SendMessageToKafka messageToKafka) {
         this.messageToKafka = messageToKafka;
     }
 
     Map<String, Object> parseMessage(String message) {
+=======
+    private Map<String, Object> parseMessage(String message) {
+>>>>>>> origin/main
 =======
     private Map<String, Object> parseMessage(String message) {
 >>>>>>> origin/main
