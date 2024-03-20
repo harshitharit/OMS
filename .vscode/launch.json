@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "EnrichmentSerivceApplication",
+            "request": "launch",
+            "mainClass": "com.oms.EnrichmentSerivceApplication",
+            "projectName": "EnrichmentService"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RequestHandlerApplication<RequestHandler>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.oms.RequestHandlerApplication",
+            "projectName": "RequestHandler",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
