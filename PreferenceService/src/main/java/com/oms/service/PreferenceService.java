@@ -21,7 +21,20 @@ public class PreferenceService {
     @Autowired
     private SendMessageToKafka messageToKafka;
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+    @Autowired
+    public PreferenceService(SendMessageToKafka messageToKafka) {
+        this.messageToKafka = messageToKafka;
+    }
+
+    Map<String, Object> parseMessage(String message) {
+=======
     private Map<String, Object> parseMessage(String message) {
+>>>>>>> origin/main
+=======
+    private Map<String, Object> parseMessage(String message) {
+>>>>>>> origin/main
         ObjectMapper mapper = new ObjectMapper();
         try {
             return mapper.readValue(message, new TypeReference<Map<String, Object>>(){});

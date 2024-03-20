@@ -8,6 +8,14 @@ import com.oms.SendMessageToKafka;
 import com.oms.model.EnrichmentModel;
 import com.oms.repository.EnrichmentRepository;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+<<<<<<< HEAD
+<<<<<<< HEAD
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+=======
+>>>>>>> origin/main
+=======
+>>>>>>> origin/main
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +39,15 @@ public class EnrichmentService {
     }
 
     @KafkaListener(topics = "request-topic", groupId = "ECMOM")
+<<<<<<< HEAD
+<<<<<<< HEAD
+    public void processMessage(@NotNull ConsumerRecord<Long, Object> consumerRecord) {
+=======
     public void processMessage(ConsumerRecord<Long, Object> consumerRecord) {
+>>>>>>> origin/main
+=======
+    public void processMessage(ConsumerRecord<Long, Object> consumerRecord) {
+>>>>>>> origin/main
         String message = consumerRecord.value().toString();
         Map<String, Object> messageMap = parseMessage(message);
         Long cifNumber = Long.parseLong(messageMap.get("cifNumber").toString());
@@ -39,13 +55,29 @@ public class EnrichmentService {
         List<EnrichmentModel> enrichmentModels = fetchData(accountNumber, cifNumber);
         if (!enrichmentModels.isEmpty()) {
             EnrichmentModel enrichmentModel = enrichmentModels.get(0);
-            harshit(enrichmentModel);
+<<<<<<< HEAD
+<<<<<<< HEAD
+            sendMessageToKafka(enrichmentModel);
+=======
+            sendMessageTokafka(enrichmentModel);
+>>>>>>> origin/main
+=======
+            sendMessageTokafka(enrichmentModel);
+>>>>>>> origin/main
         } else {
             logger.info("No data found for CIF Number: {} and Account Number: {}", cifNumber, accountNumber);
         }
     }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+    private @Nullable Map<String, Object> parseMessage(String message) {
+=======
     private Map<String, Object> parseMessage(String message) {
+>>>>>>> origin/main
+=======
+    private Map<String, Object> parseMessage(String message) {
+>>>>>>> origin/main
         ObjectMapper mapper = new ObjectMapper();
         try {
             return mapper.readValue(message, new TypeReference<Map<String, Object>>(){});
@@ -59,7 +91,15 @@ public class EnrichmentService {
         return enrichmentRepository.findByAccountNumberAndCifNumber(accountNumber, cifNumber);
     }
 
-    private void harshit(EnrichmentModel enrichmentModel) {
+<<<<<<< HEAD
+<<<<<<< HEAD
+    private void sendMessageToKafka(EnrichmentModel enrichmentModel) {
+=======
+    private void sendMessageTokafka(EnrichmentModel enrichmentModel) {
+>>>>>>> origin/main
+=======
+    private void sendMessageTokafka(EnrichmentModel enrichmentModel) {
+>>>>>>> origin/main
         try {
             ObjectMapper mapper = new ObjectMapper();
             mapper.registerModule(new JavaTimeModule());
@@ -71,4 +111,12 @@ public class EnrichmentService {
             logger.error("Error while converting EnrichmentModel to JSON: {}", e.getMessage());
         }
     }
+<<<<<<< HEAD
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main
+=======
+}
+>>>>>>> origin/main
