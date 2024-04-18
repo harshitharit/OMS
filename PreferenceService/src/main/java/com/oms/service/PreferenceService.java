@@ -51,14 +51,14 @@ public class PreferenceService {
                 logger.info("Number of preferences found: {}", preferences.size());
                 if (!preferences.isEmpty()) {
                     CustomerPreference preference = preferences.get(0);
-                    setPreference(preference.getPreferredchannel(), preference.getPreferredAddress());
+                    setPreference(preference.getPreferredchannel(), preference.getPreferredAddress(),preference.getName());
                 } else {
                     logger.info("No preferences found for accountNumber: {} and cifNumber: {}", accountNumber, cifNumber);
                 }
             }
         }
-    public void setPreference(String Preferredchannel , String PreferredAddress) {
-        String preferenceMessage = ("Preferredchannel: " + Preferredchannel + " PreferredAddress: " + PreferredAddress);
+    public void setPreference(String Preferredchannel , String PreferredAddress, String name) {
+        String preferenceMessage = ("Preferredchannel: " + Preferredchannel + " PreferredAddress: " + PreferredAddress + " Name: " + name);
         messageToKafka.sendMessageToTopic("preference-topic", preferenceMessage);
         logger.info("Sent message : " + preferenceMessage);
     }
