@@ -47,16 +47,13 @@ public class PreferenceService {
             Long cifNumber = Long.valueOf(String.valueOf(messageMap.get("cifNumber")));
             Long accountNumber = Long.valueOf(String.valueOf(messageMap.get("accountNumber")));
             logger.info("Searching for preferences with CIF Number:{} and Account Number: {}", accountNumber, cifNumber);
-                List<CustomerPreference> preferences = preferenceRepository.findAll();
-                logger.info("Number of preferences found: {}", preferences.size());
-                if (!preferences.isEmpty()) {
-                    CustomerPreference preference = preferences.get(0);
-                    setPreference(preference.getPreferredchannel(), preference.getPreferredAddress(),preference.getName());
-                } else {
-                    logger.info("No preferences found for accountNumber: {} and cifNumber: {}", accountNumber, cifNumber);
-                }
+            List<CustomerPreference> preferences = preferenceRepository.findByAccountNumberAndCifNumber(accountNumber,cifNumber);
+            logger.info("Number of preferences found: {}", preferences.size());
+            for (CustomerPreference preference : preferences) {
+                setPreference(preference.getPreferredchannel(), preference.getPreferredAddress(),preference.getName());
             }
         }
+    }
     public void setPreference(String Preferredchannel , String PreferredAddress, String name) {
         String preferenceMessage = ("Preferredchannel: " + Preferredchannel + " PreferredAddress: " + PreferredAddress + " Name: " + name);
         messageToKafka.sendMessageToTopic("preference-topic", preferenceMessage);
