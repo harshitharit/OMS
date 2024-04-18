@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <component name="AdditionalModuleElements">
-    <content url="file://$MODULE_DIR$" dumb="true">
-      <excludeFolder url="file://$MODULE_DIR$/.idea/copilot/chatSessions" />
-    </content>
-=======
   <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="5325618f-e4cb-4f55-847a-d69e4c0731fd" />
->>>>>>> origin/main
-=======
-  <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="5325618f-e4cb-4f55-847a-d69e4c0731fd" />
->>>>>>> origin/main
+    <option name="uniqueId" value="456fa3f0-23d9-497d-9885-8827ea6334e2" />
   </component>
 </module>

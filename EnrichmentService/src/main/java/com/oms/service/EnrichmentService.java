@@ -39,6 +39,9 @@ public class EnrichmentService {
             return Collections.emptyMap();
         }
     }
+    private List<EnrichmentModel> fetchData(Long accountNumber, Long cifNumber) {
+        return enrichmentRepository.findByAccountNumberAndCifNumber(accountNumber, cifNumber);
+    }
     @KafkaListener(topics = "request-topic", groupId = "ECMOM")
     public void processMessage(ConsumerRecord<Long, Object> consumerRecord) {
         String message = consumerRecord.value().toString();
@@ -51,16 +54,14 @@ public class EnrichmentService {
         Long accountNumber = Long.parseLong(messageMap.get("accountNumber").toString());
         List<EnrichmentModel> enrichmentModels = fetchData(accountNumber, cifNumber);
         if (!enrichmentModels.isEmpty()) {
-            EnrichmentModel enrichmentModel = enrichmentModels.get(0);
-            sendMessageToKafka(enrichmentModel);
+            EnrichmentModel enrichModel = enrichmentModels.get(0);
+            sendMessageToKafka(enrichModel);
         } else {
             logger.info("No data found for CIF Number: {} and Account Number: {}", cifNumber, accountNumber);
         }
     }
 
-    private List<EnrichmentModel> fetchData(Long accountNumber, Long cifNumber) {
-        return enrichmentRepository.findByAccountNumberAndCifNumber(accountNumber, cifNumber);
-    }
+
     private void sendMessageToKafka(EnrichmentModel enrichmentModel) {
         try {
             ObjectMapper mapper = new ObjectMapper();

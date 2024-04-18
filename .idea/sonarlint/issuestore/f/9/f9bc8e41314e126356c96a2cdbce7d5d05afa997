@@ -1,11 +1,11 @@
 
-
-java:S2629*"7Use the built-in formatting to construct this argument.(èå¦§úÿÿÿÿ8Îß•’ã1J$b54f4fed-b265-424e-8c6e-04b90e6c86b9
-‹
-java:S2259&"HA "NullPointerException" could be thrown; "messageMap" is nullable here.(äâŒ¨8·Ú—’ã1J$e976ca76-0078-4daf-b994-aa27419b7f93
-…
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8Üß•’ã1J$a26fcd46-0f22-4473-b891-5ad18a815237
+˜	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒƒ”²ÿÿÿÿÿ8ßÊü†ï1J$a4d1e8ac-71c7-42fa-a95a-eda678995ff9
+˜	java:S117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒƒ”²ÿÿÿÿÿ8àÊü†ï1J$57566969-7607-4d4a-bbed-eb655beeedff
+z
+java:S2629?"7Use the built-in formatting to construct this argument.(³»à¹8ãÊü†ï1J$50211559-ab07-4b28-9709-837ec0d97927
+j
+java:S2259."HA "NullPointerException" could be thrown; "messageMap" is nullable here.(­º·†þÿÿÿÿ8£¡¯‡ï1
 g
-java:S1168"$Return an empty map instead of null.(¥¹ï8‡à•’ã1J$cb11479c-b15c-471d-b6a1-888dabbc4e72
-‰
-java:S3457*"AFormat specifiers should be used instead of string concatenation.(èå¦§úÿÿÿÿ8à•’ã1J$7d3cd4f3-4b64-477c-861a-40fd61bb89ff
+java:S1168&"$Return an empty map instead of null.(¥¹ï8»Ëü†ï1J$672dfc7d-d9e5-495c-bfc7-431045ed9560
+„
+java:S3457?"AFormat specifiers should be used instead of string concatenation.(³»à¹8ÆËü†ï1J$c96383c7-61ba-4152-be38-c833e345b21a

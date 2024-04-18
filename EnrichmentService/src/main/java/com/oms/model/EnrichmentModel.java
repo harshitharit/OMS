@@ -20,11 +20,11 @@ public class EnrichmentModel {
     private String name;
     private long accountNumber;
     private String permanentAddress;
-    private String temporaryAddress;
+    private String currentAddress;
     private String place;
     private LocalDate bankHolderSince;
     private String channel;
     private LocalDate dateofBirth;
     private long cifNumber;
-
+    private String email;
 }
