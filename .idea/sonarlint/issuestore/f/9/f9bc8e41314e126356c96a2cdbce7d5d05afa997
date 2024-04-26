@@ -1,9 +1,0 @@
-
-“	java:S1179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒˆ¼¦8Ê–¦‰ï1J$6d4f47d2-ffc6-44a2-a8e5-0cd87329bd95
-“	java:S1179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒˆ¼¦8Ë–¦‰ï1J$a84ceeff-8fd4-4917-8aea-9fcc9b81fbf7
-z
-java:S2629<"7Use the built-in formatting to construct this argument.(³»à¹8Í–¦‰ï1J$ffdbd9f1-ebd4-4746-9aac-756a2c8b9031
-g
-java:S1168&"$Return an empty map instead of null.(¥¹ï8ý–¦‰ï1J$22b72b4b-f0a7-4586-8e29-917589aedc76
-„
-java:S3457<"AFormat specifiers should be used instead of string concatenation.(³»à¹8ƒ—¦‰ï1J$ce251bc0-133e-4721-8f81-15148878d3a5
