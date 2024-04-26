@@ -69,22 +69,16 @@ public class PreferenceService {
         }
     }
 
-    public void setPreference(String Preferredchannel , String PreferredAddress, String name) {
-        try {
-            if (Preferredchannel == null || Preferredchannel.isEmpty()) {
-                throw new PreferenceException("Invalid preference data: Preferredchannel is null or empty", null);
-            }
-            if (PreferredAddress == null || PreferredAddress.isEmpty()) {
-                throw new PreferenceException("Invalid preference data: PreferredAddress is null or empty", null);
-            }
-            if (name == null || name.isEmpty()) {
-                throw new PreferenceException("Invalid preference data: Name is null or empty", null);
-            }
-            String preferenceMessage = ("Preferredchannel: " + Preferredchannel + " PreferredAddress: " + PreferredAddress + " Name: " + name);
-            messageToKafka.sendMessageToTopic("preference-topic", preferenceMessage);
-        } catch (Exception e) {
-            logger.error("Error while setting preference: {}", e.getMessage());
-            throw new PreferenceException("Error while setting preference", e);
+    public void setPreference(String preferredChannel, String preferredAddress, String name) {
+        validateInput(preferredChannel, "Preferredchannel");
+        validateInput(preferredAddress, "PreferredAddress");
+        validateInput(name, "Name");
+        String preferenceMessage = String.format("Preferredchannel: %s PreferredAddress: %s Name: %s", preferredChannel, preferredAddress, name);
+        messageToKafka.sendMessageToTopic("preference-topic", preferenceMessage);
+    }
+    private void validateInput(String input, String fieldName) {
+        if (input == null || input.isEmpty()) {
+            throw new PreferenceException("Invalid preference data: " + fieldName + " is null or empty", null);
         }
     }
 }
