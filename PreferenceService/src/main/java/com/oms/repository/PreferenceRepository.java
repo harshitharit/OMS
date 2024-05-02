@@ -8,6 +8,6 @@ import java.util.List;
 
 
 @Repository
-public interface PreferenceRepository extends MongoRepository<CustomerPreference, Long>{
-  List<CustomerPreference> findByAccountNumberAndCifNumber(long accountNumber, long cifNumber);
+public interface PreferenceRepository extends MongoRepository<CustomerPreference, Long> {
+    List<CustomerPreference> findByAccountNumberAndCifNumber(long accountNumber, long cifNumber);
 }

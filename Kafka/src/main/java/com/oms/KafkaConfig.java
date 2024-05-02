@@ -13,61 +13,66 @@ import java.util.Map;
 
 @Configuration
 public class KafkaConfig {
- @Value("${spring.kafka.producer.bootstrap-servers}")
- private String bootstrapServers;
- @Value("${spring.kafka.producer.key-serializer}")
- private String keySerializer;
- @Value("${spring.kafka.producer.value-serializer}")
- private String valueSerializer;
- @Value("${spring.kafka.consumer.value-deserializer}")
- private String valueDeserializer;
- @Value("${spring.kafka.consumer.key-deserializer}")
- private String keyDeserializer;
- @Value("${spring.kafka.consumer.group-id}")
- private String groupID;
+    @Value("${spring.kafka.producer.bootstrap-servers}")
+    private String bootstrapServers;
+    @Value("${spring.kafka.producer.key-serializer}")
+    private String keySerializer;
+    @Value("${spring.kafka.producer.value-serializer}")
+    private String valueSerializer;
+    @Value("${spring.kafka.consumer.value-deserializer}")
+    private String valueDeserializer;
+    @Value("${spring.kafka.consumer.key-deserializer}")
+    private String keyDeserializer;
+    @Value("${spring.kafka.consumer.group-id}")
+    private String groupID;
 
- @Bean
-	public  SendMessageToKafka messageToKafka(){
-		return new SendMessageToKafka();
-	}
+    @Bean
+    public SendMessageToKafka messageToKafka() {
+        return new SendMessageToKafka();
+    }
 
-	@Bean
-	public NewTopic createTopic(){
-		return new NewTopic("request-topic", 1, (short) 1);
-	}
-	@Bean
-	public NewTopic createEnrichmentTopic(){
-		return new NewTopic("enrichment-topic", 1, (short) 1);
-	}
-	@Bean
-    public Map<String,Object> producerConfig(){
-  Map<String,Object> props=new HashMap<>();
-  props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-  props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, keySerializer);
-  props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, valueSerializer);
-  
-  return props;
-}
-	@Bean
-	public Map<String,Object> consumerConfig() {
-		Map<String, Object> props = new HashMap<>();
-		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, keyDeserializer);
-		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, valueDeserializer);
-		props.put(ConsumerConfig.GROUP_ID_CONFIG, groupID);
-		return props;
-	}
-	@Bean
-	public ConsumerFactory<String,Object> consumerFactory(){
-		return new DefaultKafkaConsumerFactory<>(consumerConfig());
-	}
-	@Bean
-	public ProducerFactory<String,Object> producerFactory(){
-		return new DefaultKafkaProducerFactory<>(producerConfig());
-	}
+    @Bean
+    public NewTopic createTopic() {
+        return new NewTopic("request-topic", 1, (short) 1);
+    }
 
-	@Bean
-	public KafkaTemplate<String, Object> kafkaTemplate() {
-		return new KafkaTemplate<>(producerFactory());
-	}
+    @Bean
+    public NewTopic createEnrichmentTopic() {
+        return new NewTopic("enrichment-topic", 1, (short) 1);
+    }
+
+    @Bean
+    public Map<String, Object> producerConfig() {
+        Map<String, Object> props = new HashMap<>();
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, keySerializer);
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, valueSerializer);
+
+        return props;
+    }
+
+    @Bean
+    public Map<String, Object> consumerConfig() {
+        Map<String, Object> props = new HashMap<>();
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, keyDeserializer);
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, valueDeserializer);
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, groupID);
+        return props;
+    }
+
+    @Bean
+    public ConsumerFactory<String, Object> consumerFactory() {
+        return new DefaultKafkaConsumerFactory<>(consumerConfig());
+    }
+
+    @Bean
+    public ProducerFactory<String, Object> producerFactory() {
+        return new DefaultKafkaProducerFactory<>(producerConfig());
+    }
+
+    @Bean
+    public KafkaTemplate<String, Object> kafkaTemplate() {
+        return new KafkaTemplate<>(producerFactory());
+    }
 }

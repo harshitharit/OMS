@@ -22,42 +22,42 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class RequestHandlerServiceTest {
 
-	@Mock
-	private SendMessageToKafka messageToKafka;
+    @Mock
+    private SendMessageToKafka messageToKafka;
 
-	@InjectMocks
-	private RequestHandlerService requestHandlerService;
+    @InjectMocks
+    private RequestHandlerService requestHandlerService;
 
-	@Test
-	@DisplayName("Handling online request.")
-	void handleOnlineRequest() throws JsonProcessingException {
-		OnlineRequestDto input = OnlineRequestDto.builder()
-				.cifNumber(1231241l)
-				.accountNumber(1233412l)
-				.build();
-		String result = requestHandlerService.handleOnlineRequest(input);
-		Assertions.assertEquals(result,"Success");
-	}
+    @Test
+    @DisplayName("Handling online request.")
+    void handleOnlineRequest() throws JsonProcessingException {
+        OnlineRequestDto input = OnlineRequestDto.builder()
+                .cifNumber(1231241l)
+                .accountNumber(1233412l)
+                .build();
+        String result = requestHandlerService.handleOnlineRequest(input);
+        Assertions.assertEquals(result, "Success");
+    }
 
-	@Test
-	void handleBulkRequest() throws IOException, UnsupportedFileTypeException {
-		MockMultipartFile mockMultipartFile = new MockMultipartFile(
-				"multipartFile",
-				"demo.csv",
-				"text/csv",
-				new ClassPathResource("demo.csv").getInputStream());
-		String result = requestHandlerService.handleBulkRequest(mockMultipartFile);
-		Assertions.assertEquals(result,"Success");
-	}
+    @Test
+    void handleBulkRequest() throws IOException, UnsupportedFileTypeException {
+        MockMultipartFile mockMultipartFile = new MockMultipartFile(
+                "multipartFile",
+                "demo.csv",
+                "text/csv",
+                new ClassPathResource("demo.csv").getInputStream());
+        String result = requestHandlerService.handleBulkRequest(mockMultipartFile);
+        Assertions.assertEquals(result, "Success");
+    }
 
-	@Test
-	void handleBulkRequestWithException() throws IOException, UnsupportedFileTypeException {
-		MockMultipartFile mockMultipartFile = new MockMultipartFile(
-				"multipartFile",
-				"demo.pdf",
-				"application/pdf",
-				new ClassPathResource("dummy.pdf").getInputStream());
-		assertThrows(UnsupportedFileTypeException.class,
-				()-> when(requestHandlerService.handleBulkRequest(mockMultipartFile)).thenThrow(new UnsupportedFileTypeException("")));
-	}
+    @Test
+    void handleBulkRequestWithException() throws IOException, UnsupportedFileTypeException {
+        MockMultipartFile mockMultipartFile = new MockMultipartFile(
+                "multipartFile",
+                "demo.pdf",
+                "application/pdf",
+                new ClassPathResource("dummy.pdf").getInputStream());
+        assertThrows(UnsupportedFileTypeException.class,
+                () -> when(requestHandlerService.handleBulkRequest(mockMultipartFile)).thenThrow(new UnsupportedFileTypeException("")));
+    }
 }

@@ -12,16 +12,16 @@ import java.util.List;
 
 public class RequestHandlerUtils {
 
-	private static final CsvMapper mapper = new CsvMapper();
+    private static final CsvMapper mapper = new CsvMapper();
 
-	public static  <T> List<T> read(Class<T> clazz, InputStream stream) throws IOException {
-		CsvSchema schema = mapper.schemaFor(clazz).withHeader().withColumnReordering(false);
-		ObjectReader reader = mapper.readerFor(clazz).with(schema);
-		return reader.<T>readValues(stream).readAll();
-	}
+    public static <T> List<T> read(Class<T> clazz, InputStream stream) throws IOException {
+        CsvSchema schema = mapper.schemaFor(clazz).withHeader().withColumnReordering(false);
+        ObjectReader reader = mapper.readerFor(clazz).with(schema);
+        return reader.<T>readValues(stream).readAll();
+    }
 
-	public static <T> String convertToJson(T object) throws JsonProcessingException {
-		ObjectMapper objectMapper = new ObjectMapper();
-		return objectMapper.writeValueAsString(object);
-	}
+    public static <T> String convertToJson(T object) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.writeValueAsString(object);
+    }
 }

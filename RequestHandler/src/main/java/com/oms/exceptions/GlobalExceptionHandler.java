@@ -18,21 +18,21 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-	@Override
-	public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers,
-	                                                           HttpStatusCode status, WebRequest request) {
-    Map<String, List<String>> body = new HashMap<>();
-    List<String> errors = ex.getBindingResult()
-        .getFieldErrors()
-        .stream()
-        .map(DefaultMessageSourceResolvable::getDefaultMessage)
-        .toList();
-    body.put("errors", errors);
-    return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-  }
+    @Override
+    public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers,
+                                                               HttpStatusCode status, WebRequest request) {
+        Map<String, List<String>> body = new HashMap<>();
+        List<String> errors = ex.getBindingResult()
+                .getFieldErrors()
+                .stream()
+                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                .toList();
+        body.put("errors", errors);
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    }
 
     @ExceptionHandler(UnsupportedFileTypeException.class)
-    public ResponseEntity<Map<String,String>> resourceNotFoundException(UnsupportedFileTypeException ex, WebRequest request) {
+    public ResponseEntity<Map<String, String>> resourceNotFoundException(UnsupportedFileTypeException ex, WebRequest request) {
         Map<String, String> body = new HashMap<>();
         body.put("message", ex.getMessage());
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);

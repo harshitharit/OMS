@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.springframework.kafka.core.ConsumerFactory;
 
 import java.time.Duration;
@@ -21,13 +20,14 @@ import static org.mockito.Mockito.*;
 class ReceieveMessageFromKafkaTest {
     @InjectMocks
     private ReceieveMessageFromKafka receieveMessageFromKafka;
-@Mock
-private ConsumerFactory<String , Object> consumerFactory;
-@Mock
-private KafkaConfig kafkaConfig;
+    @Mock
+    private ConsumerFactory<String, Object> consumerFactory;
+    @Mock
+    private KafkaConfig kafkaConfig;
 
-@Mock
-private Consumer<String,Object>consumer;
+    @Mock
+    private Consumer<String, Object> consumer;
+
     @BeforeEach
     void setUp() {
         consumerFactory = mock(ConsumerFactory.class);
@@ -35,11 +35,12 @@ private Consumer<String,Object>consumer;
         when(consumerFactory.createConsumer()).thenReturn(consumer);
         receieveMessageFromKafka = new ReceieveMessageFromKafka(consumerFactory);
     }
+
     @Test
     void subscribeToTopics() {
-        List<String> topics= Arrays.asList("request-Topic", "Enrichment-Topic", "preference-topic", "enrichment-topic");
+        List<String> topics = Arrays.asList("request-Topic", "Enrichment-Topic", "preference-topic", "enrichment-topic");
         receieveMessageFromKafka.subscribeToTopics(topics);
-        verify(consumer,times(1)).subscribe(topics);
+        verify(consumer, times(1)).subscribe(topics);
     }
 
 

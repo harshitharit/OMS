@@ -11,30 +11,37 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 
 @Service
 public class PreferenceService {
     private static final Logger logger = LoggerFactory.getLogger(PreferenceService.class);
     private final SendMessageToKafka messageToKafka;
-    private final  PreferenceRepository preferenceRepository;
-
+    private final PreferenceRepository preferenceRepository;
+    private final ObjectMapper objectMapper = new ObjectMapper();
     @Autowired
-    public PreferenceService(SendMessageToKafka messageToKafka, PreferenceRepository preferenceRepository){
-        this.messageToKafka= messageToKafka;
-        this.preferenceRepository=preferenceRepository;
+    public PreferenceService(SendMessageToKafka messageToKafka, PreferenceRepository preferenceRepository) {
+        this.messageToKafka = messageToKafka;
+        this.preferenceRepository = preferenceRepository;
     }
-    public Map<String, Object> parseMessage(String message) {
-        ObjectMapper mapper = new ObjectMapper();
+
+    Map<String, Object> parseMessage(String message) {
         try {
-            return mapper.readValue(message, new TypeReference<Map<String, Object>>(){});
+            Map<String, Object> messageMap = objectMapper.readValue(message, new TypeReference<>() {
+            });
+            if (!messageMap.containsKey("accountNumber") || !messageMap.containsKey("cifNumber")) {
+                throw new PreferenceException("Missing accountNumber or cifNumber in message");
+            }
+            return messageMap;
         } catch (IOException e) {
-            logger.error("Error while processing message: {}", e.getMessage());
             throw new PreferenceException("Error while processing message", e);
         }
     }
@@ -43,39 +50,35 @@ public class PreferenceService {
         try {
             String message = consumerRecord.value().toString();
             Map<String, Object> messageMap = parseMessage(message);
-            if (messageMap == null) {
-                logger.warn("Skipping message due to invalid format: {}", message);
-                return;
-            }
-            if (!messageMap.containsKey("accountNumber") || !messageMap.containsKey("cifNumber")) {
-                logger.warn("Skipping message due to missing account number or CIF number: {}", messageMap);
-                return;
-            }
             Long cifNumber = Long.valueOf(String.valueOf(messageMap.get("cifNumber")));
             Long accountNumber = Long.valueOf(String.valueOf(messageMap.get("accountNumber")));
             logger.info("Searching for preferences with CIF Number:{} and Account Number: {}", accountNumber, cifNumber);
-            List<CustomerPreference> preferences = preferenceRepository.findByAccountNumberAndCifNumber(accountNumber,cifNumber);
+            List<CustomerPreference> preferences = preferenceRepository.findByAccountNumberAndCifNumber(accountNumber, cifNumber);
             if (preferences.isEmpty()) {
                 logger.warn("No preferences found for CIF Number:{} and Account Number: {}", accountNumber, cifNumber);
                 return;
             }
             logger.info("Number of preferences found: {}", preferences.size());
-            for (CustomerPreference preference : preferences) {
-                setPreference(preference.getPreferredchannel(), preference.getPreferredAddress(),preference.getName());
-            }
+
+            List<String> preferenceMessages = preferences.parallelStream()
+                    .map(preference -> setPreference(preference.getPreferredchannel(), preference.getPreferredAddress(), preference.getName()))
+                    .collect(Collectors.toList());
+
+            List<CompletableFuture<SendResult<String, Object>>> futures = messageToKafka.sendMessagesToTopic("preference-topic", preferenceMessages);
+
+            CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
         } catch (Exception e) {
-            logger.error("Error while processing message: {}", e.getMessage());
             throw new PreferenceException("Error while processing message", e);
         }
     }
 
-    public void setPreference(String preferredChannel, String preferredAddress, String name) {
+    public String setPreference(String preferredChannel, String preferredAddress, String name) {
         validateInput(preferredChannel, "Preferredchannel");
         validateInput(preferredAddress, "PreferredAddress");
         validateInput(name, "Name");
-        String preferenceMessage = String.format("Preferredchannel: %s PreferredAddress: %s Name: %s", preferredChannel, preferredAddress, name);
-        messageToKafka.sendMessageToTopic("preference-topic", preferenceMessage);
+        return String.format("Preferredchannel: %s PreferredAddress: %s Name: %s", preferredChannel, preferredAddress, name);
     }
+
     private void validateInput(String input, String fieldName) {
         if (input == null || input.isEmpty()) {
             throw new PreferenceException("Invalid preference data: " + fieldName + " is null or empty", null);

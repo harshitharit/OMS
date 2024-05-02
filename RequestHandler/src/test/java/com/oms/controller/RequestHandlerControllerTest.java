@@ -25,92 +25,92 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest
 class RequestHandlerControllerTest {
 
-	@Autowired
-	private MockMvc mockMvc;
+    @Autowired
+    private MockMvc mockMvc;
 
-	@MockBean
-	private RequestHandlerService requestHandlerService;
+    @MockBean
+    private RequestHandlerService requestHandlerService;
 
-	@SneakyThrows
-	@Test
-	@DisplayName("Online Request handler test")
-	void onlineRequest() {
-		//build request body
-		OnlineRequestDto input = OnlineRequestDto.builder()
-				.cifNumber(1231241l)
-				.accountNumber(1233412l)
-				.build();
-		//call controller endpoints
-		Mockito.when(requestHandlerService.handleOnlineRequest(ArgumentMatchers.any())).thenReturn("");
-		mockMvc.perform(post("/api/handle/onlineRequest").contentType(MediaType.APPLICATION_JSON)
-						.characterEncoding("utf-8")
-						.content(asJsonString(input))
-						.accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isCreated());
+    @SneakyThrows
+    @Test
+    @DisplayName("Online Request handler test")
+    void onlineRequest() {
+        //build request body
+        OnlineRequestDto input = OnlineRequestDto.builder()
+                .cifNumber(1231241l)
+                .accountNumber(1233412l)
+                .build();
+        //call controller endpoints
+        Mockito.when(requestHandlerService.handleOnlineRequest(ArgumentMatchers.any())).thenReturn("");
+        mockMvc.perform(post("/api/handle/onlineRequest").contentType(MediaType.APPLICATION_JSON)
+                        .characterEncoding("utf-8")
+                        .content(asJsonString(input))
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isCreated());
 
-	}
+    }
 
-	@SneakyThrows
-	@Test
-	@DisplayName("Online Request handler test")
-	void onlineRequestException() {
-		//build request body
-		OnlineRequestDto input = OnlineRequestDto.builder()
-				.cifNumber(null)
-				.accountNumber(1233412l)
-				.build();
-		//call controller endpoints
-		Mockito.when(requestHandlerService.handleOnlineRequest(ArgumentMatchers.any())).thenReturn("");
-		mockMvc.perform(post("/api/handle/onlineRequest").contentType(MediaType.APPLICATION_JSON)
-						.characterEncoding("utf-8")
-						.content(asJsonString(input))
-						.accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().is4xxClientError());
+    @SneakyThrows
+    @Test
+    @DisplayName("Online Request handler test")
+    void onlineRequestException() {
+        //build request body
+        OnlineRequestDto input = OnlineRequestDto.builder()
+                .cifNumber(null)
+                .accountNumber(1233412l)
+                .build();
+        //call controller endpoints
+        Mockito.when(requestHandlerService.handleOnlineRequest(ArgumentMatchers.any())).thenReturn("");
+        mockMvc.perform(post("/api/handle/onlineRequest").contentType(MediaType.APPLICATION_JSON)
+                        .characterEncoding("utf-8")
+                        .content(asJsonString(input))
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().is4xxClientError());
 
-	}
+    }
 
-	@SneakyThrows
-	@Test
-	@DisplayName("Bulk Request handler test")
-	void bulkRequest() {
-		//bulk request body
-		MockMultipartFile mockMultipartFile = new MockMultipartFile(
-				"multipartFile",
-				"demo.csv",
-				"text/csv",
-				new ClassPathResource("demo.csv").getInputStream());
-		//call controller endpoints
-		Mockito.when(requestHandlerService.handleBulkRequest(ArgumentMatchers.any())).thenReturn("");
-		mockMvc.perform(MockMvcRequestBuilders.multipart("/api/handle/bulkRequest")
-						.file(mockMultipartFile))
-				.andExpect(status().isCreated());
-	}
+    @SneakyThrows
+    @Test
+    @DisplayName("Bulk Request handler test")
+    void bulkRequest() {
+        //bulk request body
+        MockMultipartFile mockMultipartFile = new MockMultipartFile(
+                "multipartFile",
+                "demo.csv",
+                "text/csv",
+                new ClassPathResource("demo.csv").getInputStream());
+        //call controller endpoints
+        Mockito.when(requestHandlerService.handleBulkRequest(ArgumentMatchers.any())).thenReturn("");
+        mockMvc.perform(MockMvcRequestBuilders.multipart("/api/handle/bulkRequest")
+                        .file(mockMultipartFile))
+                .andExpect(status().isCreated());
+    }
 
-	@SneakyThrows
-	@Test
-	@DisplayName("Bulk Request handler test")
-	void bulkRequestWithException() {
-		//bulk request body
-		MockMultipartFile mockMultipartFile = new MockMultipartFile(
-				"multipartFile",
-				"dummy.pdf",
-				"application/pdf",
-				new ClassPathResource("dummy.pdf").getInputStream());
-		//call controller endpoints
-		Mockito.when(requestHandlerService.handleBulkRequest(ArgumentMatchers.any())).thenThrow(new UnsupportedFileTypeException(""));
-		mockMvc.perform(MockMvcRequestBuilders.multipart("/api/handle/bulkRequest")
-						.file(mockMultipartFile))
-				.andExpect(status().is4xxClientError());
-	}
+    @SneakyThrows
+    @Test
+    @DisplayName("Bulk Request handler test")
+    void bulkRequestWithException() {
+        //bulk request body
+        MockMultipartFile mockMultipartFile = new MockMultipartFile(
+                "multipartFile",
+                "dummy.pdf",
+                "application/pdf",
+                new ClassPathResource("dummy.pdf").getInputStream());
+        //call controller endpoints
+        Mockito.when(requestHandlerService.handleBulkRequest(ArgumentMatchers.any())).thenThrow(new UnsupportedFileTypeException(""));
+        mockMvc.perform(MockMvcRequestBuilders.multipart("/api/handle/bulkRequest")
+                        .file(mockMultipartFile))
+                .andExpect(status().is4xxClientError());
+    }
 
-	private String asJsonString(Object object) {
-		try {
-			ObjectMapper op = new ObjectMapper();
-			op.findAndRegisterModules();
-			return op.writeValueAsString(object);
-		} catch (JsonProcessingException e) {
-			e.getStackTrace();
-		}
-		return null;
-	}
+    private String asJsonString(Object object) {
+        try {
+            ObjectMapper op = new ObjectMapper();
+            op.findAndRegisterModules();
+            return op.writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            e.getStackTrace();
+        }
+        return null;
+    }
 }

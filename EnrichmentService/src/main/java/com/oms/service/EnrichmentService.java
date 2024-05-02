@@ -24,29 +24,35 @@ public class EnrichmentService {
     private static final Logger logger = LoggerFactory.getLogger(EnrichmentService.class);
     private final SendMessageToKafka messageToKafka;
     private final EnrichmentRepository enrichmentRepository;
+    private final ObjectMapper objectMapper;
 
     @Autowired
     public EnrichmentService(SendMessageToKafka messageToKafka, EnrichmentRepository enrichmentRepository) {
         this.messageToKafka = messageToKafka;
         this.enrichmentRepository = enrichmentRepository;
+        this.objectMapper = new ObjectMapper();
+        this.objectMapper.registerModule(new JavaTimeModule());
     }
-    private Map<String, Object> parseMessage(String message) {
-        ObjectMapper mapper = new ObjectMapper();
+
+    Map<String, Object> parseMessage(String message) {
         try {
-            return mapper.readValue(message, new TypeReference<Map<String, Object>>(){});
+            return objectMapper.readValue(message, new TypeReference<Map<String, Object>>() {
+            });
         } catch (IOException e) {
             logger.error("Error while processing message: {}", e.getMessage());
             return Collections.emptyMap();
         }
     }
+
     private List<EnrichmentModel> fetchData(Long accountNumber, Long cifNumber) {
         return enrichmentRepository.findByAccountNumberAndCifNumber(accountNumber, cifNumber);
     }
+
     @KafkaListener(topics = "request-topic", groupId = "ECMOM")
     public void processMessage(ConsumerRecord<Long, Object> consumerRecord) {
         String message = consumerRecord.value().toString();
         Map<String, Object> messageMap = parseMessage(message);
-        if (messageMap == null) {
+        if (messageMap.isEmpty()) {
             logger.error("Error parsing message: {}", message);
             return;
         }
@@ -61,15 +67,11 @@ public class EnrichmentService {
         }
     }
 
-
     private void sendMessageToKafka(EnrichmentModel enrichmentModel) {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.registerModule(new JavaTimeModule());
-            String message = mapper.writeValueAsString(enrichmentModel);
+            String message = objectMapper.writeValueAsString(enrichmentModel);
             messageToKafka.sendMessageToTopic("enrichment-topic", message);
             logger.info("Enrichment data sent for CIF Number: {} and Account Number: {}", enrichmentModel.getCifNumber(), enrichmentModel.getAccountNumber());
-
         } catch (JsonProcessingException e) {
             logger.error("Error while converting EnrichmentModel to JSON: {}", e.getMessage());
         }

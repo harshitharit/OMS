@@ -1,0 +1,10 @@
+
+‘	java:S117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’òæ®ÿÿÿÿÿJ$adf49500-8b3e-41b9-9230-6acee71cc278
+‡
+java:S2095"FUse try-with-resources or close this "Consumer" in a "finally" clause.(½«•ÕþÿÿÿÿJ$d21ddd50-3bb3-471f-bfbe-f956fb91f215
+€
+java:S2583"DChange this condition so that it does not always evaluate to "false"(ŠÒìÀJ$be5b0fb4-6936-4e80-b228-1fe329d3429c
+}
+java:S1117"<Rename "consumer" which hides the field declared at line 17.(½«•ÕþÿÿÿÿJ$03b06ddb-757d-470b-97ee-36859190ad7e
+k	java:S106"+Replace this use of System.out by a logger.(âÆÂÌüÿÿÿÿJ$26cdb55a-b484-4ade-9616-72c38e34fec1
+f	java:S106'"+Replace this use of System.out by a logger.(â°©ØJ$78c3ce4f-8144-446e-ad3d-cbe6fddc5083

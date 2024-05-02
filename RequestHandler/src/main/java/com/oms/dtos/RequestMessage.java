@@ -6,6 +6,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @Data
 public class RequestMessage {
-	private Long cifNumber;
-	private Long accountNumber;
+    private Long cifNumber;
+    private Long accountNumber;
 }

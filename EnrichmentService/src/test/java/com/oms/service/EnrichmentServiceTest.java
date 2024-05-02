@@ -15,10 +15,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.io.IOException;
 import java.util.Collections;
+import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
@@ -35,18 +36,36 @@ class EnrichmentServiceTest {
     @InjectMocks
     private EnrichmentService enrichmentService;
 
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
+    @Test
+    void testParseMessage() throws IOException {
+        String message = "{\"accountNumber\":75892449412,\"cifNumber\":74212869153}";
+        Map<String, Object> result = enrichmentService.parseMessage(message);
+        assertEquals(2, result.size());
+        assertEquals(75892449412L, result.get("accountNumber"));
+        assertEquals(74212869153L, result.get("cifNumber"));
+    }
+
+    @Test
+    void testParseMessage_EmptyMap() throws IOException {
+        String message = "Invalid JSON";
+        Map<String, Object> result = enrichmentService.parseMessage(message);
+        assertTrue(result.isEmpty());
+    }
+
     @Test
     void testProcessMessage() throws JSONException, JsonProcessingException {
-        Long AccountNumber=75892449412L;
-        Long CifNumber=74212869153L;
+        Long accountNumber = 75892449412L;
+        Long cifNumber = 74212869153L;
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("accountNumber", AccountNumber);
-        jsonObject.put("cifNumber", CifNumber);
+        jsonObject.put("accountNumber", accountNumber);
+        jsonObject.put("cifNumber", cifNumber);
         String recordValue = jsonObject.toString();
         ConsumerRecord<Long, Object> record = new ConsumerRecord<>("topic", 1, 1L, 1L, recordValue);
         EnrichmentModel enrichmentModel = new EnrichmentModel();
-        enrichmentModel.setCifNumber(AccountNumber);
-        enrichmentModel.setAccountNumber(CifNumber);
+        enrichmentModel.setCifNumber(accountNumber);
+        enrichmentModel.setAccountNumber(cifNumber);
         when(enrichmentRepository.findByAccountNumberAndCifNumber(anyLong(), anyLong()))
                 .thenReturn(Collections.singletonList(enrichmentModel));
         enrichmentService.processMessage(record);
@@ -54,47 +73,52 @@ class EnrichmentServiceTest {
     }
 
     @Test
-    void testProcessMessage_Exception() throws JSONException {
-        Long AccountNumber=75892449412L;
-        Long CifNumber=74212869153L;
+    void testProcessMessage_EmptyMap() throws JSONException {
+        String message = "Invalid JSON";
+        ConsumerRecord<Long, Object> record = new ConsumerRecord<>("topic", 1, 1L, 1L, message);
+        enrichmentService.processMessage(record);
+        verify(messageToKafka, never()).sendMessageToTopic(anyString(), anyString());
+    }
+
+    @Test
+    void testProcessMessage_NoDataFound() throws JSONException {
+        Long accountNumber = 75892449412L;
+        Long cifNumber = 74212869153L;
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("accountNumber", AccountNumber);
-        jsonObject.put("cifNumber",CifNumber );
+        jsonObject.put("accountNumber", accountNumber);
+        jsonObject.put("cifNumber", cifNumber);
         String recordValue = jsonObject.toString();
         ConsumerRecord<Long, Object> record = new ConsumerRecord<>("topic", 1, 1L, 1L, recordValue);
+        when(enrichmentRepository.findByAccountNumberAndCifNumber(anyLong(), anyLong())).thenReturn(Collections.emptyList());
 
-        when(enrichmentRepository.findByAccountNumberAndCifNumber(anyLong(), anyLong()))
-                .thenThrow(new RuntimeException("Database error"));
+        enrichmentService.processMessage(record);
 
-        assertThrows(RuntimeException.class, () -> enrichmentService.processMessage(record));
+        verify(messageToKafka, never()).sendMessageToTopic(anyString(), anyString());
     }
 
     @Test
     void testProcessAndSendmessagetoTopic() throws JSONException, JsonProcessingException {
-        Long AccountNumber=75892449412L;
-        Long CifNumber=74212869153L;
+        Long accountNumber = 75892449412L;
+        Long cifNumber = 74212869153L;
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("accountNumber", AccountNumber);
-        jsonObject.put("cifNumber", CifNumber);
+        jsonObject.put("accountNumber", accountNumber);
+        jsonObject.put("cifNumber", cifNumber);
         String recordValue = jsonObject.toString();
         ConsumerRecord<Long, Object> record = new ConsumerRecord<>("topic", 1, 1L, 1L, recordValue);
 
         EnrichmentModel enrichmentModel = new EnrichmentModel();
-        enrichmentModel.setCifNumber(CifNumber);
-        enrichmentModel.setAccountNumber(AccountNumber);
+        enrichmentModel.setCifNumber(cifNumber);
+        enrichmentModel.setAccountNumber(accountNumber);
         when(enrichmentRepository.findByAccountNumberAndCifNumber(anyLong(), anyLong()))
                 .thenReturn(Collections.singletonList(enrichmentModel));
+
         enrichmentService.processMessage(record);
 
-        ArgumentCaptor<String> topicCaptor = ArgumentCaptor.forClass(String.class);
         ArgumentCaptor<String> messageCaptor = ArgumentCaptor.forClass(String.class);
-        verify(messageToKafka, times(1)).sendMessageToTopic(topicCaptor.capture(), messageCaptor.capture());
+        verify(messageToKafka, times(1)).sendMessageToTopic(eq("enrichment-topic"), messageCaptor.capture());
 
-        assertEquals("enrichment-topic", topicCaptor.getValue());
-
-        ObjectMapper mapper = new ObjectMapper();
-        EnrichmentModel capturedEnrichmentModel = mapper.readValue(messageCaptor.getValue(), EnrichmentModel.class);
-        assertEquals(CifNumber, capturedEnrichmentModel.getCifNumber());
-        assertEquals(AccountNumber, capturedEnrichmentModel.getAccountNumber());
+        JSONObject capturedJsonObject = new JSONObject(messageCaptor.getValue());
+        assertEquals(accountNumber, capturedJsonObject.getLong("accountNumber"));
+        assertEquals(cifNumber, capturedJsonObject.getLong("cifNumber"));
     }
 }
