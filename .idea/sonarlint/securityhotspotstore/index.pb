@@ -57,3 +57,7 @@ JEnrichmentService/src/test/java/com/oms/service/EnrichmentServiceTest.java,a\b
 LEnrichmentService/src/main/java/com/oms/repository/EnrichmentRepository.java,a\d\ad731963ce8310c2611b7278d94246adb6f886bb
 r
 BEnrichmentService/src/main/java/com/oms/model/EnrichmentModel.java,b\5\b502daf4b4b0deb8af856a6317c2fdedfbd1dd29
+Å
+QRequestHandler/src/test/java/com/oms/controller/RequestHandlerControllerTest.java,7\a\7af6aec40d24047eb4e31909fbacccbf761ee087
+|
+LRequestHandler/src/test/java/com/oms/services/RequestHandlerServiceTest.java,f\2\f29e8babeaf0bc90d0b942b8e91c403e2eb7a5a1
