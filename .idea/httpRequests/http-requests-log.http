@@ -1,0 +1,32 @@
+POST http://localhost:8080/api/handle/onlineRequest
+Content-Type: application/json
+Content-Length: 59
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "cifNumber": 12345677,
+  "accountNumber": 11223333445
+}
+
+<> 2024-05-10T104109.201.txt
+
+###
+
+POST http://localhost:8080/api/handle/onlineRequest
+Content-Type: application/json
+Content-Length: 59
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+
+{
+  "cifNumber": 12345677,
+  "accountNumber": 11223333445
+}
+
+<> 2024-05-10T094708.201.txt
+
+###
+

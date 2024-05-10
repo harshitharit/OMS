@@ -63,10 +63,6 @@ K
 DistributionService/pom.xml,e\6\e6b3d37fa99ad247ce675d3e577d8d3f64645332
 v
 FDistributionService/src/main/java/com/oms/DistributionApplication.java,9\8\98bbb5f4dc10407ccde20f071959cca0d9acdcf5
-G
-DistributionService.iml,2\0\204f429c09133a8f5ee04c85eb1395f1b3c8b5df
-E
-EnrichmentService.iml,0\a\0a398a21b42e6e0fe5f679fb2fb03ef5e47ceeba
 H
 GenerateServices/pom.xml,7\b\7bf2a6c1212203ec738db76bee3b946359052c6e
 p
@@ -77,3 +73,7 @@ U
 %Kafka/src/main/java/com/oms/main.java,5\b\5b5a1bcf637596a9b1216a2ba93129b6d0522679
 z
 JDistributionService/src/main/java/com/oms/service/DistributionService.java,6\9\6916428646ee7c848bb62d062c00cfc4aaca70ac
+x
+HRequestHandler/src/main/java/com/oms/services/RequestHandlerService.java,8\5\85b4dfd76e01eaa2de006e2bc8ea89faf089d66a
+}
+MGenerateServices/src/main/java/com/oms/exceptions/GlobalExceptionHandler.java,a\0\a0dcba98df6ae73ee741a505d289eafbb67d5138

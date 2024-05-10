@@ -8,6 +8,8 @@ import java.time.LocalDate;
 
 @Document(collection = "Enrichment")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class EnrichmentModel {
     @Id
     private String id;

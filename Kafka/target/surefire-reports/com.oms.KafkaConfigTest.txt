@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.oms.KafkaConfigTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.46 s - in com.oms.KafkaConfigTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.459 s - in com.oms.KafkaConfigTest

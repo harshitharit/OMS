@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -21,6 +22,7 @@ import java.util.Map;
 
 
 @Service
+@Transactional
 public class PreferenceService {
         private static final Logger logger = LoggerFactory.getLogger(PreferenceService.class);
         private final SendMessageToKafka messageToKafka;

@@ -1,6 +1,5 @@
 package com.oms.service;
 
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itextpdf.text.Document;
@@ -15,19 +14,19 @@ import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.*;
-
+import java.util.Base64;
+import java.util.Map;
 
 @Slf4j
 @Service
 public class GeneratorService {
     private final SendMessageToKafka messageToKafka;
 
-
     @Autowired
     public GeneratorService(SendMessageToKafka messageToKafka) {
         this.messageToKafka = messageToKafka;
     }
+
     private Map<String, Object> parsePreferenceMessage(String preferenceMessage) {
         ObjectMapper mapper = new ObjectMapper();
         try {
@@ -38,16 +37,14 @@ public class GeneratorService {
         }
     }
 
-   @KafkaListener(topics = "preference-topic", groupId = "ECMOM")
+    @KafkaListener(topics = "preference-topic", groupId = "ECMOM")
     public void generatePdfAndSendToKafka(String preferenceMessage) {
-       Map<String, Object> preferenceData = parsePreferenceMessage(preferenceMessage);
-       ByteArrayOutputStream pdfOutputStream = generatePdf(preferenceData);
-       List<String> pdfMessages = new ArrayList<>();
-       pdfMessages.add(Base64.getEncoder().encodeToString(pdfOutputStream.toByteArray()));
-       for (String pdfMessage : pdfMessages) {
-           messageToKafka.sendMessageToTopic("generator-topic", pdfMessage);
-       }
-   }
+        Map<String, Object> preferenceData = parsePreferenceMessage(preferenceMessage);
+        ByteArrayOutputStream pdfOutputStream = generatePdf(preferenceData);
+        String pdfMessage = Base64.getEncoder().encodeToString(pdfOutputStream.toByteArray());
+        messageToKafka.sendMessageToTopic("generator-topic", pdfMessage);
+    }
+
     private ByteArrayOutputStream generatePdf(Map<String, Object> preferenceData) {
         Document document = new Document();
         ByteArrayOutputStream pdfOutputStream = new ByteArrayOutputStream();

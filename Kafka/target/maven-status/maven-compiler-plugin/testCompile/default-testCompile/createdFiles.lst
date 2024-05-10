@@ -1,0 +1,3 @@
+com\oms\SendMessageToKafkaTest.class
+com\oms\KafkaConfigTest.class
+com\oms\ReceieveMessageFromKafkaTest.class
