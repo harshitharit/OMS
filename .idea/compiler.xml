@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/DistributionService/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/GenerateServices/src/main/resources/archetype-resources" includeSubdirectories="true" />
+    </excludeFromCompile>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Kafka" />
         <module name="EnrichmentService" />
         <module name="PreferenceService" />
         <module name="RequestHandler" />
+        <module name="Kafka" />
         <module name="DistributionService" />
-        <module name="GeneratorService" />
+        <module name="GenerateServices" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="GeneratorService" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="DistributionService" options="-parameters" />
       <module name="EnrichmentService" options="-parameters" />
+      <module name="GenerateServices" options="-parameters" />
       <module name="GeneratorService" options="-parameters" />
       <module name="Kafka" options="-parameters" />
       <module name="PreferenceService" options="-parameters" />

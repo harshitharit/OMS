@@ -17,11 +17,6 @@ public class SendMessageToKafka {
 
     @Autowired
     private KafkaTemplate<String, Object> template;
-    public List<CompletableFuture<SendResult<String, Object>>> sendMessagesToTopic(String topic, List<String> messages) {
-        return messages.stream()
-                .map(message -> sendMessageToTopic(topic, message))
-                .collect(Collectors.toList());
-    }
 
     public CompletableFuture<SendResult<String, Object>> sendMessageToTopic(String topic, String message) {
         CompletableFuture<SendResult<String, Object>> future = template.send(topic, message);

@@ -48,7 +48,7 @@ public class EnrichmentService {
         return enrichmentRepository.findByAccountNumberAndCifNumber(accountNumber, cifNumber);
     }
 
-    @KafkaListener(topics = "request-topic", groupId = "ECMOM")
+    @KafkaListener(topics = "request-topic", groupId = "ECM-OM")
     public void processMessage(ConsumerRecord<Long, Object> consumerRecord) {
         String message = consumerRecord.value().toString();
         Map<String, Object> messageMap = parseMessage(message);

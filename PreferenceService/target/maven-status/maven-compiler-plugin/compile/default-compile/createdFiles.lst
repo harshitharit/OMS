@@ -1,5 +1,0 @@
-com\oms\model\CustomerPreference.class
-com\oms\repository\PreferenceRepository.class
-com\oms\service\PreferenceService.class
-com\oms\PrefernceServiceApplication.class
-com\oms\service\PreferenceService$1.class

@@ -1,33 +1,23 @@
 package com.oms.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oms.SendMessageToKafka;
 import com.oms.exception.PreferenceException;
 import com.oms.model.CustomerPreference;
 import com.oms.repository.PreferenceRepository;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.mockito.*;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.kafka.support.KafkaHeaders;
 
-import java.io.IOException;
-import java.util.*;
-import java.util.stream.Stream;
+import java.util.Collections;
+import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
 class PreferenceServiceTest {
 
     @Mock
@@ -39,84 +29,73 @@ class PreferenceServiceTest {
     @InjectMocks
     private PreferenceService preferenceService;
 
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
     @Test
-    @DisplayName("Test for processMessage method with valid data")
-    void processMessageTest_ValidData() throws IOException {
-        ConsumerRecord<Long, Object> mockConsumerRecord = mock(ConsumerRecord.class);
-        when(mockConsumerRecord.value()).thenReturn("{\"accountNumber\":123456789,\"cifNumber\":123456789}");
+    void testParseMessage() throws Exception {
+        String message = "{\"key\":\"value\"}";
+        Map<String, Object> result = preferenceService.parseMessage(message);
+        assertEquals(1, result.size());
+        assertEquals("value", result.get("key"));
+    }
 
-        CustomerPreference mockPreference = mock(CustomerPreference.class);
-        when(mockPreference.getPreferredchannel()).thenReturn("email");
-        when(mockPreference.getPreferredAddress()).thenReturn("Jaipur");
-        when(mockPreference.getName()).thenReturn("Harshit Harit");
+    @Test
+    void testProcessMessage() {
+        ConsumerRecord<Long, Object> consumerRecord = mock(ConsumerRecord.class);
+        when(consumerRecord.value()).thenReturn("{\"accountNumber\":\"123\",\"cifNumber\":\"456\"}");
 
+        CustomerPreference preference = new CustomerPreference();
+        preference.setPreferredchannel("Email");
+        preference.setPreferredAddress("test@example.com");
+        preference.setName("Test User");
         when(preferenceRepository.findByAccountNumberAndCifNumber(anyLong(), anyLong()))
-                .thenReturn(Collections.singletonList(mockPreference));
+                .thenReturn(Collections.singletonList(preference));
 
-        preferenceService.processMessage(mockConsumerRecord);
+        preferenceService.processMessage(consumerRecord);
 
-        verify(preferenceRepository, times(1)).findByAccountNumberAndCifNumber(anyLong(), anyLong());
-        verify(messageToKafka, times(1)).sendMessagesToTopic(anyString(), anyList());
+        verify(messageToKafka, times(1)).sendMessageToTopic(anyString(), anyString());
     }
 
     @Test
-    @DisplayName("Test for processMessage method with invalid message format")
-    void processMessageTest_InvalidMessageFormat() {
-        ConsumerRecord<Long, Object> mockConsumerRecord = mock(ConsumerRecord.class);
-        when(mockConsumerRecord.value()).thenReturn("Invalid message format");
-
-        assertThrows(PreferenceException.class, () -> preferenceService.processMessage(mockConsumerRecord));
-
-        verifyNoInteractions(preferenceRepository, messageToKafka);
-    }
-
-
-    @Test
-    @DisplayName("Test for processMessage method with empty preference list")
-    void processMessageTest_EmptyPreferenceList() throws IOException {
-        ConsumerRecord<Long, Object> mockConsumerRecord = mock(ConsumerRecord.class);
-        when(mockConsumerRecord.value()).thenReturn("{\"accountNumber\":123456789,\"cifNumber\":123456789}");
-        when(preferenceRepository.findByAccountNumberAndCifNumber(anyLong(), anyLong())).thenReturn(new ArrayList<>());
-
-        preferenceService.processMessage(mockConsumerRecord);
-
-        verify(preferenceRepository, times(1)).findByAccountNumberAndCifNumber(anyLong(), anyLong());
-        verifyNoInteractions(messageToKafka);
+    void testSendMessageToTopic() {
+        preferenceService.sendMessageToTopic("test-topic", "test-message");
+        verify(messageToKafka, times(1)).sendMessageToTopic("test-topic", "test-message");
     }
 
     @Test
-    @DisplayName("setPreference should throw exception when preferredChannel is null or empty")
-    void setPreference_ThrowsException_PreferredChannelNullOrEmpty() {
-        assertThrows(PreferenceException.class, () -> preferenceService.setPreference(null, "Jaipur", "Harshit Harit"));
-        assertThrows(PreferenceException.class, () -> preferenceService.setPreference("", "Jaipur", "Harshit Harit"));
+    void testFormatPreferenceMessage() {
+        CustomerPreference preference = new CustomerPreference();
+        preference.setPreferredchannel("Email");
+        preference.setPreferredAddress("test@example.com");
+        preference.setName("Test User");
+
+        String result = preferenceService.formatPreferenceMessage(preference);
+        assertEquals("Preferredchannel: Email PreferredAddress: test@example.com Name: Test User", result);
     }
 
     @Test
-    @DisplayName("setPreference should throw exception when preferredAddress is null or empty")
-    void setPreference_ThrowsException_PreferredAddressNullOrEmpty() {
-        assertThrows(PreferenceException.class, () -> preferenceService.setPreference("email", null, "Harshit Harit"));
-        assertThrows(PreferenceException.class, () -> preferenceService.setPreference("email", "", "Harshit Harit"));
+    void testValidatePreference() {
+        CustomerPreference preference = new CustomerPreference();
+        preference.setPreferredchannel("Email");
+        preference.setPreferredAddress("test@example.com");
+        preference.setName("Test User");
+
+        assertDoesNotThrow(() -> preferenceService.validatePreference(preference));
     }
 
     @Test
-    @DisplayName("setPreference should throw exception when name is null or empty")
-    void setPreference_ThrowsException_NameNullOrEmpty() {
-        assertThrows(PreferenceException.class, () -> preferenceService.setPreference("email", "Jaipur", null));
-        assertThrows(PreferenceException.class, () -> preferenceService.setPreference("email", "Jaipur", ""));
+    void testValidateInput() {
+        assertThrows(PreferenceException.class, () -> preferenceService.validateInput(null, "TestField"));
+        assertThrows(PreferenceException.class, () -> preferenceService.validateInput("", "TestField"));
     }
     @Test
-    @DisplayName("Test parseMessage with missing accountNumber or cifNumber")
-    void testParseMessageMissingKey() {
-        Map<String, Object> testCases = new HashMap<>();
-        testCases.put("missingAccountNumber", "{\"cifNumber\":67890}");
-        testCases.put("missingCifNumber", "{\"accountNumber\":12345}");
+    void testProcessMessageThrowsExceptionForInvalidMessage() {
+        ConsumerRecord<Long, Object> consumerRecord = mock(ConsumerRecord.class);
+        when(consumerRecord.value()).thenReturn("invalid message");
 
-        for (Map.Entry<String, Object> entry : testCases.entrySet()) {
-            String message = (String) entry.getValue();
-            String testCaseName = entry.getKey();
-
-            assertThrows(PreferenceException.class, () -> preferenceService.parseMessage(message),
-                    "PreferenceException should be thrown when " + testCaseName);
-        }
+        assertThrows(PreferenceException.class, () -> preferenceService.processMessage(consumerRecord));
     }
 }

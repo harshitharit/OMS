@@ -1,3 +1,5 @@
 
-•
-java:S6204A"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8ÜªÑÈó1J$8a4ee533-cf50-4569-8757-750c2580ef1a
+›
+java:S2139&"XEither log this exception and handle it, or rethrow it with some contextual information.(ï­£Ä8ê†Şõ1J$28179a98-26b8-43c6-957f-b182969a8abc
+›
+java:S2139E"XEither log this exception and handle it, or rethrow it with some contextual information.(”ı¾8¦ê†Şõ1J$dc0547f6-52b8-4c5f-b3e8-3883e303ac0c

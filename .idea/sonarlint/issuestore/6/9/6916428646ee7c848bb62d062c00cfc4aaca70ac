@@ -1,0 +1,8 @@
+
+ˆ	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(€ýÉÍ8®¾âçõ1J$49e84db5-0d0f-4071-a73d-05d1e02e668a
+ƒ
+java:S1854";Remove this useless assignment to local variable "pdfData".(ºˆï÷ýÿÿÿÿ8Ü«ãçõ1J$348b44d4-a17a-44d6-b947-5ec92a7fc4d5
+t
+java:S1481",Remove this unused "pdfData" local variable.(ºˆï÷ýÿÿÿÿ8ä«ãçõ1J$233735bb-8cb5-45fb-99ec-30cf1bbbb8b3
+z
+java:S1068"2Remove this unused "messageToKafka" private field.(è–±…üÿÿÿÿ8Û€åçõ1J$865a9067-94a5-4122-a564-2a27e0b9adf8

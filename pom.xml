@@ -101,6 +101,6 @@
         <module>EnrichmentService</module>
         <module>Kafka</module>
         <module>DistributionService</module>
-        <module>GeneratorService</module>
+        <module>GenerateServices</module>
     </modules>
 </project>
