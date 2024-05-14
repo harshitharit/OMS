@@ -51,11 +51,11 @@ public class GeneratorService {
         try {
             PdfWriter.getInstance(document, pdfOutputStream);
             document.open();
-            document.add(new Paragraph("Name: " + preferenceData.get("name")));
-            document.add(new Paragraph("Account Number: " + preferenceData.get("accountNumber")));
-            document.add(new Paragraph("CIF Number: " + preferenceData.get("cifNumber")));
-            document.add(new Paragraph("Preferred Channel: " + preferenceData.get("preferredChannel")));
-            document.add(new Paragraph("Preferred Address: " + preferenceData.get("preferredAddress")));
+            document.add(new Paragraph("Name: " + preferenceData.get("Name")));
+            document.add(new Paragraph("Account Number: " + preferenceData.get("AccountNumber")));
+            document.add(new Paragraph("CIF Number: " + preferenceData.get("CifNumber")));
+            document.add(new Paragraph("Preferred Channel: " + preferenceData.get("PreferredChannel")));
+            document.add(new Paragraph("Preferred Address: " + preferenceData.get("PreferredAddress")));
             document.close();
         } catch (DocumentException e) {
             log.error("Error while generating PDF", e);
